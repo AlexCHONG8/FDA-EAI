@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注射后针头完整性测试方案与责任划分指南</title>
+    <script src="https://cdn.tailwindcss.com/3.3.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.5.0/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+            background-color: #F5F7FA;
+            color: #333;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .nav-active {
+            color: #1E50B3;
+            font-weight: 600;
+            border-bottom: 2px solid #1E50B3;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 99;
+        }
+        .mermaid-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .standard-panel {
+            border-left: 4px solid #1E50B3;
+            background-color: #F0F7FF;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .code-block {
+            border: 2px solid #1E50B3;
+            background-color: #F8FAFC;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        @media (max-width: 767px) {
+            .mobile-menu {
+                display: block;
+            }
+            .desktop-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-[#1E50B3]">
+                <i class="fas fa-syringe mr-2"></i>针头完整性测试指南
+            </div>
+            <div class="desktop-menu hidden md:flex space-x-6">
+                <a href="#core" class="text-gray-600 hover:text-[#1E50B3] transition-colors">核心要素</a>
+                <a href="#process" class="text-gray-600 hover:text-[#1E50B3] transition-colors">测试流程</a>
+                <a href="#responsibility" class="text-gray-600 hover:text-[#1E50B3] transition-colors">责任划分</a>
+                <a href="#compliance" class="text-gray-600 hover:text-[#1E50B3] transition-colors">合规文件</a>
+                <a href="#report" class="text-gray-600 hover:text-[#1E50B3] transition-colors">测试报告</a>
+                <a href="#mitigation" class="text-gray-600 hover:text-[#1E50B3] transition-colors">风险控制</a>
+                <a href="#actions" class="text-gray-600 hover:text-[#1E50B3] transition-colors">行动计划</a>
+                <a href="#references" class="text-gray-600 hover:text-[#1E50B3] transition-colors">参考文献</a>
+            </div>
+            <button class="md:hidden text-gray-600 focus:outline-none" id="mobileMenuButton">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div class="mobile-menu bg-white shadow-lg hidden" id="mobileMenu">
+            <div class="container mx-auto px-4 py-2 flex flex-col">
+                <a href="#core" class="py-2 text-gray-600 hover:text-[#1E50B3]"><i class="fas fa-cube mr-2"></i>核心要素</a>
+                <a href="#process" class="py-2 text-gray-600 hover:text-[#1E50B3]"><i class="fas fa-list-ol mr-2"></i>测试流程</a>
+                <a href="#responsibility" class="py-2 text-gray-600 hover:text-[#1E50B3]"><i class="fas fa-balance-scale mr-2"></i>责任划分</a>
+                <a href="#compliance" class="py-2 text-gray-600 hover:text-[#1E50B3]"><i class="fas fa-file-alt mr-2"></i>合规文件</a>
+                <a href="#report" class="py-2 text-gray-600 hover:text-[#1E50B3]"><i class="fas fa-clipboard-list mr-2"></i>测试报告</a>
+                <a href="#mitigation" class="py-2 text-gray-600 hover:text-[#1E50B3]"><i class="fas fa-shield-alt mr-2"></i>风险控制</a>
+                <a href="#actions" class="py-2 text-gray-600 hover:text-[#1E50B3]"><i class="fas fa-tasks mr-2"></i>行动计划</a>
+                <a href="#references" class="py-2 text-gray-600 hover:text-[#1E50B3]"><i class="fas fa-book mr-2"></i>参考文献</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 标题区 -->
+    <header class="bg-[#1E50B3] text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">注射后针头完整性测试方案与责任划分指南</h1>
+            <p class="text-xl opacity-90">基于<strong>ASTM F1342（美国材料与试验协会穿刺阻力测试标准）</strong>和<strong>ISO 11040-8（预灌封注射器国际标准）</strong>规范的医疗技术指南</p>
+        </div>
+    </header>
+
+    <!-- 目录 -->
+    <section class="container mx-auto px-4 py-8">
+        <div class="glassmorphism p-6">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-4"><i class="fas fa-list-ul mr-2"></i>目录</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="#core" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <span>一、测试设计核心要素</span>
+                </a>
+                <a href="#process" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <span>二、详细测试流程</span>
+                </a>
+                <a href="#responsibility" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <span>三、责任划分与风险控制</span>
+                </a>
+                <a href="#compliance" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <span>四、合规性证明文件</span>
+                </a>
+                <a href="#report" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <span>五、测试报告模板</span>
+                </a>
+                <a href="#mitigation" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span>六、风险 mitigation 策略</span>
+                </a>
+                <a href="#actions" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <span>七、下一步行动清单</span>
+                </a>
+                <a href="#references" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <span>八、参考文献</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 正文内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 一、测试设计核心要素 -->
+        <section id="core" class="mb-16">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-6 border-b pb-2">一、测试设计核心要素</h2>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    1.0 标准引用
+                </h3>
+                
+                <div class="standard-panel mb-6">
+                    <h4 class="font-bold text-lg mb-2"><strong>ASTM F1342（美国材料与试验协会穿刺阻力测试标准）</strong></h4>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li><strong>标准全称：</strong>Standard Test Method for Protective Clothing Material Resistance to Puncture</li>
+                        <li><strong>发布机构：</strong>American Society for Testing and Materials (ASTM)</li>
+                        <li><strong>核心技术指标：</strong>穿刺力测量方法、测试速度要求(500mm/min)、数据采集频率</li>
+                        <li><strong>关联性：</strong>本方案采用其测试方法和参数设置标准</li>
+                    </ul>
+                </div>
+                
+                <div class="standard-panel mb-6">
+                    <h4 class="font-bold text-lg mb-2"><strong>ISO 11040-8（预灌封注射器国际标准）</strong></h4>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li><strong>标准全称：</strong>Prefilled syringes - Part 8: Requirements and test methods for finished prefilled syringes</li>
+                        <li><strong>发布机构：</strong>International Organization for Standardization (ISO)</li>
+                        <li><strong>核心技术指标：</strong>针头完整性要求、测试环境条件(22±2℃,50±5%RH)、样本量要求</li>
+                        <li><strong>关联性：</strong>本方案遵循其针头完整性评估标准</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    1.1 测试材料选择与参数
+                </h3>
+                <p class="mb-4">根据<strong>ASTM F1342（美国材料与试验协会穿刺阻力测试标准）</strong>标准和R产品标签要求，选择以下三种代表性材料：</p>
+                
+                <div class="table-responsive mb-6">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">材料类型</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">规格参数</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">穿透难度</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">选择依据</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">标准依据</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium"><strong>牛仔布</strong></td>
+                                <td class="px-6 py-4 whitespace-nowrap">10盎司/平方码，密度68×42根/平方英寸</td>
+                                <td class="px-6 py-4 whitespace-nowrap">高难度</td>
+                                <td class="px-6 py-4">模拟厚重衣物，参考GOVBUY政府采购标准</td>
+                                <td class="px-6 py-4 whitespace-nowrap">依据T/GDTEX 14-2020标准</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium"><strong>纯棉针织布</strong></td>
+                                <td class="px-6 py-4 whitespace-nowrap">200g/㎡，厚度0.5mm±0.05mm</td>
+                                <td class="px-6 py-4 whitespace-nowrap">中等难度</td>
+                                <td class="px-6 py-4">模拟日常衣物</td>
+                                <td class="px-6 py-4 whitespace-nowrap">符合YY/T 0506.1-2016标准</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium"><strong>医用无纺布</strong></td>
+                                <td class="px-6 py-4 whitespace-nowrap">30g/㎡，SMS结构</td>
+                                <td class="px-6 py-4 whitespace-nowrap">低难度</td>
+                                <td class="px-6 py-4">模拟医疗环境下的低阻力场景</td>
+                                <td class="px-6 py-4 whitespace-nowrap">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p class="text-sm text-gray-600"><strong>材料预处理：</strong>所有材料需在22±2℃、相对湿度50±5%条件下平衡24小时。</p>
+            </div>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-angle-double-right"></i>
+                    </div>
+                    1.2 测试角度设置
+                </h3>
+                <p class="mb-4">依据<strong>FDA（美国食品药品监督管理局）</strong>指导原则和实际使用场景，设置三个关键角度：</p>
+                
+                <div class="table-responsive mb-4">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">角度</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">模拟场景</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">测试数量</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium">90°</td>
+                                <td class="px-6 py-4">理想垂直注射（R产品推荐角度）</td>
+                                <td class="px-6 py-4 whitespace-nowrap">每批次10次重复</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium">60°</td>
+                                <td class="px-6 py-4">常见使用偏差角度</td>
+                                <td class="px-6 py-4 whitespace-nowrap">每批次10次重复</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium">45°</td>
+                                <td class="px-6 py-4">极端非理想角度</td>
+                                <td class="px-6 py-4 whitespace-nowrap">每批次10次重复</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p class="text-sm text-gray-600"><strong>角度控制：</strong>使用带角度刻度的固定夹具，确保针头轴线与材料表面夹角误差≤±2°。</p>
+            </div>
+            
+            <div class="glassmorphism p-6">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    1.3 样本量与批次要求
+                </h3>
+                <p class="mb-4">遵循<strong>ISO 11040-8（预灌封注射器国际标准）</strong>和<strong>FDA（美国食品药品监督管理局）</strong>生物等效性研究要求：</p>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>样本量：</strong>3批T产品（Summed+Stevanato组合）和3批R产品</li>
+                    <li><strong>单位数量：</strong>每批次≥10个单位（总计≥90次测试）</li>
+                    <li><strong>批次要求：</strong>T产品需使用3个不同批次的Stevanato PFS（Lot No.需记录）</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 二、详细测试流程 -->
+        <section id="process" class="mb-16">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-6 border-b pb-2">二、详细测试流程</h2>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    2.1 测试设备与环境
+                </h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>测试仪器：</strong>配备10N传感器的万能材料试验机（如Instron 5943）</li>
+                    <li><strong>测试速度：</strong>500mm/min（符合<strong>ASTM F1342（美国材料与试验协会穿刺阻力测试标准）</strong>标准）</li>
+                    <li><strong>环境条件：</strong>22±2℃，相对湿度50±5%</li>
+                </ul>
+            </div>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    2.2 步骤分解
+                </h3>
+                <ol class="list-decimal pl-6 mb-6 space-y-3">
+                    <li><strong>样品准备</strong>
+                        <ul class="list-disc pl-6 mt-2 space-y-1">
+                            <li>将测试材料固定于30mm×30mm的模拟组织基板（肖氏硬度A 85±5）</li>
+                            <li>安装PFS于自动注射器，触发装置设置为标准力度（参考Summed产品规格）</li>
+                        </ul>
+                    </li>
+                    <li><strong>测试执行</strong></li>
+                </ol>
+                
+                <div class="mermaid-container">
+                    <div class="mermaid">
+                        graph TD
+                            A[安装样品] --> B[设置角度与速度]
+                            B --> C[触发注射]
+                            C --> D[记录最大穿透力]
+                            D --> E[检查针头完整性]
+                    </div>
+                </div>
+                
+                <h4 class="font-semibold mt-6 mb-3">2.3 完整性评估指标</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h5 class="font-medium text-blue-800 mb-2"><strong>一级指标</strong></h5>
+                        <p>针头无弯曲（挠度≤0.4mm，按<strong>YY/T 0043（医用注射针标准）</strong>标准）</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h5 class="font-medium text-blue-800 mb-2"><strong>二级指标</strong></h5>
+                        <p>针尖无卷边、针管无裂纹（40×显微镜检查）</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h5 class="font-medium text-blue-800 mb-2"><strong>三级指标</strong></h5>
+                        <p>穿透成功率（≥95%视为通过）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 三、责任划分与风险控制 -->
+        <section id="responsibility" class="mb-16">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-6 border-b pb-2">三、责任划分与风险控制</h2>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    3.1 组件责任界定
+                </h3>
+                <p class="mb-4">基于<strong>ISO 11040-4（预灌封注射器国际标准）</strong>和<strong>FDA（美国食品药品监督管理局）</strong>组合产品指南，明确责任边界：</p>
+                
+                <div class="table-responsive mb-6">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">责任方</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">负责范围</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">验证方法</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium"><strong>Stevanato</strong></td>
+                                <td class="px-6 py-4">PFS针头物理性能</td>
+                                <td class="px-6 py-4">提供符合<strong>ISO 9626（医疗器械用不锈钢针管标准）</strong>的针头强度测试报告</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium"><strong>Summed</strong></td>
+                                <td class="px-6 py-4">自动注射器触发机制</td>
+                                <td class="px-6 py-4">验证触发力（5-15N）与穿刺深度（≥8mm）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p class="font-medium mb-2">关键证据：Stevanato需提供：</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>针头材料证明（AISI 304不锈钢，符合<strong>ISO 7864（一次性使用无菌注射针标准）</strong>标准）</li>
+                    <li>针尖锋利度测试报告（穿刺力≤3N，按<strong>YBB00092004-2015（药用注射剂用胶塞、垫片穿刺力测定法）</strong>标准）</li>
+                </ul>
+            </div>
+            
+            <div class="glassmorphism p-6">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    3.2 失效分析流程
+                </h3>
+                <p class="mb-4">当出现针头失效时，执行以下归因步骤：</p>
+                <ol class="list-decimal pl-6 mb-6 space-y-3">
+                    <li><strong>排除法测试：</strong>使用相同PFS搭配R产品的自动注射器，验证是否重现失效</li>
+                    <li><strong>参数核查：</strong>检查Stevanato PFS的针管壁厚（≥0.15mm）和针尖角度（12±1°）</li>
+                    <li><strong>环境验证：</strong>确认测试温度、湿度符合<strong>ISO 11040-8（预灌封注射器国际标准）</strong>标准条件</li>
+                </ol>
+                
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-medium text-blue-800 mb-2">责任判定依据：</h4>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>若搭配R设备仍失效 → Stevanato责任（PFS缺陷）</li>
+                        <li>仅在Summed设备失效 → Summed责任（触发机制问题）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 四、合规性证明文件 -->
+        <section id="compliance" class="mb-16">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-6 border-b pb-2">四、合规性证明文件</h2>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    4.1 Stevanato PFS合规性文件
+                </h3>
+                <p class="mb-4">需从Stevanato获取以下文件（通过DMF或质量协议）：</p>
+                
+                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-medium text-blue-800 mb-2"><strong>药物主文件（DMF，Drug Master File）</strong></h4>
+                    <p>Type III类文件（编号需在ANDA中引用）</p>
+                </div>
+                
+                <h4 class="font-medium mb-2">性能测试报告：包括：</h4>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>针头拉伸强度（≥600MPa，<strong>ISO 7864（一次性使用无菌注射针标准）</strong>）</li>
+                    <li>针座连接强度（≥20N，<strong>ISO 11040-4（预灌封注射器国际标准）</strong>）</li>
+                    <li>灭菌残留（EO残留≤250μg/device，<strong>ISO 10993-7（医疗器械生物学评价第7部分：环氧乙烷灭菌残留量）</strong>）</li>
+                </ul>
+            </div>
+            
+            <div class="glassmorphism p-6">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    4.2 Summed自动注射器验证文件
+                </h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>生物相容性报告：</strong>符合<strong>ISO 10993-1（医疗器械生物学评价第1部分：风险管理过程中的评价与试验）</strong>要求</li>
+                    <li><strong>功能验证：</strong>触发力重复性（CV≤10%）</li>
+                    <li><strong>稳定性数据：</strong>40℃/75%RH条件下6个月性能测试</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 五、测试报告模板 -->
+        <section id="report" class="mb-16">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-6 border-b pb-2">五、测试报告模板</h2>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    5.1 关键数据记录表
+                </h3>
+                
+                <div class="table-responsive">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">批次</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">角度</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">材料</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">穿透力(N)</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">针头状态</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">备注</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">T001</td>
+                                <td class="px-6 py-4 whitespace-nowrap">90°</td>
+                                <td class="px-6 py-4 whitespace-nowrap">牛仔布</td>
+                                <td class="px-6 py-4 whitespace-nowrap">4.2±0.3</td>
+                                <td class="px-6 py-4 whitespace-nowrap">完好</td>
+                                <td class="px-6 py-4">-</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">T001</td>
+                                <td class="px-6 py-4 whitespace-nowrap">45°</td>
+                                <td class="px-6 py-4 whitespace-nowrap">牛仔布</td>
+                                <td class="px-6 py-4 whitespace-nowrap">5.8±0.5</td>
+                                <td class="px-6 py-4 whitespace-nowrap">1/10弯曲</td>
+                                <td class="px-6 py-4">挠度0.6mm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="glassmorphism p-6">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    5.2 等效性判定标准
+                </h3>
+                <p class="mb-4">采用PBE分析框架：</p>
+                
+                <div class="code-block mb-4">
+                    <code class="text-sm">
+                        PBE = (μT - μR)² + (σT² - σR²) ≤ 0.893
+                    </code>
+                </div>
+                
+                <p class="mb-2">其中：</p>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li>μ：穿透力均值</li>
+                    <li>σ²：总方差</li>
+                    <li>界值0.893基于ln(1.25)/0.2²计算</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 六、风险 mitigation 策略 -->
+        <section id="mitigation" class="mb-16">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-6 border-b pb-2">六、风险 mitigation 策略</h2>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    6.1 材料变异控制
+                </h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>建立牛仔布验收标准（如克重公差±5%）</li>
+                    <li>每批次材料进行厚度预筛选（使用激光测厚仪）</li>
+                </ul>
+            </div>
+            
+            <div class="glassmorphism p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    6.2 测试偏差控制
+                </h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>定期校准角度夹具（每年由计量机构认证）</li>
+                    <li>采用视频记录系统（帧率≥30fps）监控穿刺过程</li>
+                </ul>
+            </div>
+            
+            <div class="glassmorphism p-6">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    6.3 供应商质量协议
+                </h3>
+                <p class="mb-4">与Stevanato签订补充协议，明确：</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>针头批次追溯要求（可追溯至原始钢管批次）</li>
+                    <li>关键尺寸CPK值（≥1.33）</li>
+                    <li>年度第三方审核条款（如SGS审计）</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 七、下一步行动清单 -->
+        <section id="actions" class="mb-16">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-6 border-b pb-2">七、下一步行动清单</h2>
+            
+            <div class="glassmorphism p-6">
+                <div class="table-responsive">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">行动项</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">责任方</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">交付物</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">截止时间</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">获取Stevanato DMF</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Summed</td>
+                                <td class="px-6 py-4">DMF访问授权</td>
+                                <td class="px-6 py-4 whitespace-nowrap">2周内</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">执行预验证测试</td>
+                                <td class="px-6 py-4 whitespace-nowrap">第三方实验室</td>
+                                <td class="px-6 py-4">可行性报告</td>
+                                <td class="px-6 py-4 whitespace-nowrap">4周内</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">更新质量协议</td>
+                                <td class="px-6 py-4 whitespace-nowrap">法务部</td>
+                                <td class="px-6 py-4">签署版协议</td>
+                                <td class="px-6 py-4 whitespace-nowrap">6周内</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">提交ANDA补充资料</td>
+                                <td class="px-6 py-4 whitespace-nowrap">注册部</td>
+                                <td class="px-6 py-4">eCTD模块3.2.P.7</td>
+                                <td class="px-6 py-4 whitespace-nowrap">8周内</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                    <p class="font-medium text-blue-800">特别说明：</p>
+                    <p>本方案需与Stevanato共享，获取其PFS的具体批次测试数据（如针头硬度HV≥450），该数据属于商业机密，无法通过公开渠道获取。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 八、参考文献 -->
+        <section id="references" class="mb-16">
+            <h2 class="text-2xl font-bold text-[#1E50B3] mb-6 border-b pb-2">八、参考文献</h2>
+            
+            <div class="glassmorphism p-6">
+                <h3 class="text-xl font-semibold mb-4 flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#1E50B3] mr-3">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    引用标准与文献
+                </h3>
+                
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li><strong>ASTM F1342-13</strong> - Standard Test Method for Protective Clothing Material Resistance to Puncture</li>
+                    <li><strong>ISO 11040-8:2016</strong> - Prefilled syringes - Part 8: Requirements and test methods for finished prefilled syringes</li>
+                    <li><strong>ISO 7864:2016</strong> - Sterile hypodermic needles for single use</li>
+                    <li><strong>ISO 9626:2016</strong> - Stainless steel needle tubing for the manufacture of medical devices</li>
+                    <li><strong>ISO 10993-1:2018</strong> - Biological evaluation of medical devices - Part 1: Evaluation and testing within a risk management process</li>
+                    <li><strong>ISO 10993-7:2008</strong> - Biological evaluation of medical devices - Part 7: Ethylene oxide sterilization residuals</li>
+                    <li><strong>YY/T 0043-2016</strong> - 医用注射针</li>
+                    <li><strong>YBB00092004-2015</strong> - 药用注射剂用胶塞、垫片穿刺力测定法</li>
+                    <li><strong>T/GDTEX 14-2020</strong> - 牛仔布物理性能测试方法</li>
+                    <li><strong>YY/T 0506.1-2016</strong> - 病人、医护人员和器械用手术单、手术衣和洁净服</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top bg-[#1E50B3] text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm opacity-80">注射后针头完整性测试方案与责任划分指南</p>
+                    <p class="text-xs opacity-60 mt-1">基于ASTM F1342和ISO 11040-8规范</p>
+                </div>
+                <div class="text-sm opacity-80">
+                    <p>created by <a href="https://space.coze.cn" class="hover:underline">coze space</a></p>
+                    <p class="text-xs mt-1">页面内容均由 AI 生成，仅供参考</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 初始化Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+
+        // 导航栏滚动高亮
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            // 移动端菜单切换
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // 返回顶部按钮
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                // 导航栏高亮
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 300) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('nav-active');
+                    }
+                });
+                
+                // 返回顶部按钮显示/隐藏
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            // 返回顶部功能
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // 表格排序功能
+            const tables = document.querySelectorAll('table');
+            tables.forEach(table => {
+                const headers = table.querySelectorAll('th');
+                headers.forEach((header, index) => {
+                    header.style.cursor = 'pointer';
+                    header.addEventListener('click', () => {
+                        sortTable(table, index);
+                    });
+                });
+            });
+            
+            function sortTable(table, column) {
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                
+                rows.sort((a, b) => {
+                    const aText = a.querySelectorAll('td')[column].textContent.trim();
+                    const bText = b.querySelectorAll('td')[column].textContent.trim();
+                    
+                    // 尝试转换为数字比较
+                    const aNum = parseFloat(aText.replace(/[^\d.-]/g, ''));
+                    const bNum = parseFloat(bText.replace(/[^\d.-]/g, ''));
+                    
+                    if (!isNaN(aNum) && !isNaN(bNum)) {
+                        return aNum - bNum;
+                    } else {
+                        return aText.localeCompare(bText);
+                    }
+                });
+                
+                // 移除现有行
+                rows.forEach(row => tbody.removeChild(row));
+                
+                // 添加排序后的行
+                rows.forEach(row => tbody.appendChild(row));
+            }
+        });
+    </script>
+</body>
+</html>
