@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive guide to FDA requirements for epinephrine autoinjectors, including PBE analysis, delivered volume, needle specifications, and training programs.">
+    <title>FDA Guidance for Epinephrine Autoinjectors</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Language toggle styles */
+        .language-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .language-toggle button {
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .language-toggle button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        /* Horizontal tab layout */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        
+        .tab button.active {
+            background-color: #005A9C;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            animation: fadeEffect 1s;
+        }
+        
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #005A9C;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+        
+        #backToTopBtn:hover {
+            background-color: #004080;
+        }
+        
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FDA Guidance for Epinephrine Autoinjectors</h1>
+        <div class="language-toggle">
+            <button id="en-btn" onclick="toggleLanguage('en')" class="active">English</button>
+            <button id="zh-btn" onclick="toggleLanguage('zh')">中文</button>
+        </div>
+    </header>
+    
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'overview')" id="defaultOpen">Overview</button>
+        <button class="tablinks" onclick="openTab(event, 'pbe-analysis')">PBE Analysis</button>
+        <button class="tablinks" onclick="openTab(event, 'delivered-volume')">Delivered Volume</button>
+        <button class="tablinks" onclick="openTab(event, 'needle-length')">Needle Length</button>
+        <button class="tablinks" onclick="openTab(event, 'needle-integrity')">Needle Integrity</button>
+        <button class="tablinks" onclick="openTab(event, 'ejection-time')">Ejection Time</button>
+        <button class="tablinks" onclick="openTab(event, 'trigger-force')">Trigger Force</button>
+        <button class="tablinks" onclick="openTab(event, 'training')">Training Program</button>
+        <button class="tablinks" onclick="openTab(event, 'resources')">Resources</button>
+    </div>
+    
+    <!-- Overview Tab -->
+    <div id="overview" class="tab-content">
+        <!-- English Content -->
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#guidance-evolution">FDA Guidance Evolution</a></li>
+                    <li><a href="#key-requirements">Key Requirements</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="introduction">Overview of FDA Guidance for Epinephrine Autoinjectors</h2>
+            <p>Epinephrine autoinjectors (EAIs) are critical medical devices used to treat severe allergic reactions (anaphylaxis). The FDA has issued multiple guidance documents to ensure that generic EAI products are comparable to the reference listed drug (RLD). This document provides an overview of the evolution of FDA guidance and the key requirements that manufacturers must consider when developing generic EAIs.</p>
+            
+            <h3 id="guidance-evolution">FDA Guidance Evolution</h3>
+            <p>The FDA guidance documents for epinephrine autoinjectors have undergone several revisions, each further clarifying and expanding the bioequivalence requirements.</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Major Changes</th>
+                            <th>Key Requirements</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2016</td>
+                            <td>Initial Release</td>
+                            <td>Basic device similarity requirements</td>
+                        </tr>
+                        <tr>
+                            <td>2018</td>
+                            <td>Expanded Bioequivalence Requirements</td>
+                            <td>Introduction of needle length and delivered volume as critical parameters</td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td>Comprehensive Revision</td>
+                            <td>Detailed testing methodologies and statistical analysis requirements</td>
+                        </tr>
+                        <tr>
+                            <td>2025</td>
+                            <td>Latest Update</td>
+                            <td>Addition of human factors studies and training device requirements</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 id="key-requirements">Key Requirements</h3>
+            <p>Current FDA guidance requires generic EAI products to demonstrate comparability to the RLD in the following areas:</p>
+            
+            <ul>
+                <li><strong>Delivered Volume:</strong> Generic products must demonstrate bioequivalence in the volume of epinephrine delivered.</li>
+                <li><strong>Needle Length:</strong> The extended needle length must be comparable to the RLD to ensure proper tissue depth delivery.</li>
+                <li><strong>Needle Integrity:</strong> The needle must maintain its integrity after injection through various materials at different angles, matching the performance of the RLD.</li>
+                <li><strong>Ejection Time:</strong> The time to eject the full dose volume must be consistent and comparable to the RLD.</li>
+                <li><strong>Trigger Force:</strong> The force required to activate the auto-injector must be comparable to the RLD, ensuring usability while preventing accidental activation.</li>
+            </ul>
+            
+            <h3 id="conclusion">Conclusion</h3>
+            <p>FDA guidance for epinephrine autoinjectors continues to evolve to ensure that generic products are comparable to the RLD in critical performance characteristics. Manufacturers must conduct comprehensive testing and statistical analysis to demonstrate that their products meet these requirements. The subsequent sections of this document provide detailed information on the testing methodologies and evaluation criteria for each key requirement.</p>
+        </div>
+    </div>
+    
+    <!-- PBE Analysis Tab -->
+    <div id="pbe-analysis" class="tab-content">
+        <!-- English Content -->
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#pbe-intro">Introduction to PBE</a></li>
+                    <li><a href="#pbe-formula">PBE Formula and Calculation</a></li>
+                    <li><a href="#pbe-example">Practical Application Example</a></li>
+                    <li><a href="#pbe-calculator">Sample Size Calculator</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="pbe-intro">Population Bioequivalence (PBE) Analysis</h2>
+            <p>Population Bioequivalence (PBE) is the statistical method recommended by the FDA for evaluating the comparability of critical performance parameters between generic epinephrine autoinjectors and the reference listed drug (RLD). Unlike traditional average bioequivalence, PBE considers both mean differences and variability differences.</p>
+            
+            <div class="note">
+                <h4>Key Advantages of PBE</h4>
+                <p>The PBE approach is particularly suitable for evaluating medical devices because it:</p>
+                <ul>
+                    <li>Evaluates both means and variabilities simultaneously</li>
+                    <li>Accounts for subject-by-reference interactions</li>
+                    <li>Provides a more comprehensive assessment of equivalence</li>
+                    <li>Is appropriate for parameters with high variability</li>
+                </ul>
+            </div>
+            
+            <h3 id="pbe-formula">PBE Formula and Calculation</h3>
+            <p>The PBE analysis is based on the following statistical model:</p>
+            
+            <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center;">
+                <p>PBE Metric = (μT - μR)² + (σ²T - σ²R) - θ·σ²R</p>
+                <p>Where:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>μT = Mean of test product</li>
+                    <li>μR = Mean of reference product</li>
+                    <li>σ²T = Variance of test product</li>
+                    <li>σ²R = Variance of reference product</li>
+                    <li>θ = Constant (typically 1.111)</li>
+                </ul>
+            </div>
+            
+            <p>Bioequivalence criteria:</p>
+            <ul>
+                <li>If the 95% upper confidence bound of the PBE metric < θ·σ²R, then bioequivalence is demonstrated</li>
+                <li>This means that the total difference between test and reference products (including both mean and variability) is within an acceptable range</li>
+            </ul>
+            
+            <h3 id="pbe-example">Practical Application Example</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>Needle Length PBE Analysis Example</h4>
+                <p><strong>Test Scenario:</strong> Comparing needle length between a generic epinephrine autoinjector and EpiPen®</p>
+                
+                <h4>Collected Data:</h4>
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Product</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Mean (mm)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">SD (mm)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Variance (mm²)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">EpiPen® (Reference)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">16.0</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.6</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.36</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Generic (Test)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">15.7</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.5</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.25</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>PBE Calculation:</h4>
+                <ol>
+                    <li>Mean difference squared: (15.7 - 16.0)² = (-0.3)² = 0.09</li>
+                    <li>Variance difference: 0.25 - 0.36 = -0.11</li>
+                    <li>PBE metric = 0.09 + (-0.11) = -0.02</li>
+                    <li>Reference criterion: θ·σ²R = 1.111 × 0.36 = 0.40</li>
+                    <li>95% upper confidence bound (calculated via bootstrapping) = 0.15</li>
+                </ol>
+                
+                <h4>Conclusion:</h4>
+                <p>Since the 95% upper confidence bound (0.15) < reference criterion (0.40), bioequivalence is demonstrated for needle length.</p>
+            </div>
+            
+            <h3 id="pbe-calculator">Sample Size Calculator</h3>
+            <p>To ensure adequate statistical power for PBE studies, appropriate sample sizes must be determined. Below is a sample size estimation based on expected differences and variabilities:</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Expected Mean Difference<br>(% of Reference Mean)</th>
+                            <th>Expected Variability Ratio<br>(σ²T/σ²R)</th>
+                            <th>Required Sample Size<br>per Group</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5%</td>
+                            <td>0.8-1.0</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>5%</td>
+                            <td>1.0-1.2</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>10%</td>
+                            <td>0.8-1.0</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>10%</td>
+                            <td>1.0-1.2</td>
+                            <td>60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="warning">
+                <strong>Important Note:</strong> The FDA typically recommends using at least 3 batches with at least 10 units per batch for a total of at least 30 units per product for PBE analysis. Larger sample sizes may be required for parameters with high variability.
+            </div>
+        </div>
+        
+        <!-- Chinese Content -->
+        <div class="zh-content" style="display: none;">
+            <div class="toc">
+                <h3>目录</h3>
+                <ul>
+                    <li><a href="#zh-pbe-intro">群体生物等效性简介</a></li>
+                    <li><a href="#zh-pbe-formula">PBE公式和计算</a></li>
+                    <li><a href="#zh-pbe-example">实际应用示例</a></li>
+                    <li><a href="#zh-pbe-calculator">样本量计算器</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="zh-pbe-intro">群体生物等效性(PBE)分析</h2>
+            <p>群体生物等效性(PBE)是FDA推荐用于评估仿制肾上腺素自动注射器与参比制剂之间关键性能参数可比性的统计方法。与传统的平均生物等效性不同，PBE同时考虑了均值差异和变异性差异。</p>
+            
+            <div class="note">
+                <h4>PBE的关键优势</h4>
+                <p>PBE方法特别适用于评估医疗设备，因为它：</p>
+                <ul>
+                    <li>同时评估均值和变异性</li>
+                    <li>考虑了受试者-参比制剂交互作用</li>
+                    <li>提供了更全面的等效性评估</li>
+                    <li>适用于具有高变异性的参数</li>
+                </ul>
+            </div>
+            
+            <h3 id="zh-pbe-formula">PBE公式和计算</h3>
+            <p>PBE分析基于以下统计模型：</p>
+            
+            <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center;">
+                <p>PBE指标 = (μT - μR)² + (σ²T - σ²R) - θ·σ²R</p>
+                <p>其中：</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>μT = 测试产品的均值</li>
+                    <li>μR = 参比产品的均值</li>
+                    <li>σ²T = 测试产品的方差</li>
+                    <li>σ²R = 参比产品的方差</li>
+                    <li>θ = 常数（通常为1.111）</li>
+                </ul>
+            </div>
+            
+            <p>生物等效性判定标准：</p>
+            <ul>
+                <li>如果PBE指标的95%上置信限 < θ·σ²R，则认为具有生物等效性</li>
+                <li>这意味着测试产品与参比产品之间的总体差异（包括均值和变异性）在可接受范围内</li>
+            </ul>
+            
+            <h3 id="zh-pbe-example">实际应用示例</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>针头长度PBE分析示例</h4>
+                <p><strong>测试场景：</strong> 比较仿制肾上腺素自动注射器与EpiPen®的针头长度</p>
+                
+                <h4>收集的数据：</h4>
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">产品</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">均值 (mm)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">标准差 (mm)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">方差 (mm²)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">EpiPen® (参比)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">16.0</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.6</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.36</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">仿制产品 (测试)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">15.7</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.5</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.25</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>PBE计算：</h4>
+                <ol>
+                    <li>均值差异平方：(15.7 - 16.0)² = (-0.3)² = 0.09</li>
+                    <li>方差差异：0.25 - 0.36 = -0.11</li>
+                    <li>PBE指标 = 0.09 + (-0.11) = -0.02</li>
+                    <li>参考标准：θ·σ²R = 1.111 × 0.36 = 0.40</li>
+                    <li>95%上置信限（通过引导法计算）= 0.15</li>
+                </ol>
+                
+                <h4>结论：</h4>
+                <p>由于95%上置信限(0.15) < 参考标准(0.40)，因此测试产品与参比产品在针头长度方面具有生物等效性。</p>
+            </div>
+            
+            <h3 id="zh-pbe-calculator">样本量计算器</h3>
+            <p>为了确保PBE研究具有足够的统计检验效能，必须确定适当的样本量。以下是基于预期差异和变异性的样本量估算：</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>预期均值差异<br>(% of 参比均值)</th>
+                            <th>预期变异性比率<br>(σ²T/σ²R)</th>
+                            <th>每组所需样本量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5%</td>
+                            <td>0.8-1.0</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>5%</td>
+                            <td>1.0-1.2</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>10%</td>
+                            <td>0.8-1.0</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>10%</td>
+                            <td>1.0-1.2</td>
+                            <td>60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="warning">
+                <strong>重要注意事项：</strong> FDA通常建议每个产品至少使用3个批次，每个批次至少10个单位，总共至少30个单位进行PBE分析。对于高变异性参数，可能需要更大的样本量。
+            </div>
+        </div>
+    </div>
+    
+    <!-- Delivered Volume Tab -->
+    <div id="delivered-volume" class="tab-content">
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#dv-intro">Introduction to Delivered Volume</a></li>
+                    <li><a href="#dv-testing">Testing Methodology</a></li>
+                    <li><a href="#dv-case-study">Case Study: EpiPen® vs Generic</a></li>
+                    <li><a href="#dv-acceptance">Acceptance Criteria</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="dv-intro">Delivered Volume</h2>
+            <p>The delivered volume of epinephrine is a critical quality attribute for autoinjectors. It directly impacts the therapeutic effect and must be precisely controlled to ensure that patients receive the correct dose of medication.</p>
+            
+            <div class="note">
+                <h4>FDA Requirement</h4>
+                <p>Generic epinephrine autoinjectors must demonstrate that the delivered volume is equivalent to the reference listed drug (RLD) using population bioequivalence (PBE) statistical analysis.</p>
+            </div>
+            
+            <h3 id="dv-testing">Testing Methodology</h3>
+            <p>The FDA recommends the following methodology for measuring delivered volume:</p>
+            
+            <ol>
+                <li><strong>Sample Preparation:</strong> Condition autoinjectors at controlled temperature (20-25°C) and humidity (40-60% RH) for at least 24 hours before testing.</li>
+                <li><strong>Test Medium:</strong> Use a standardized test medium that simulates human tissue resistance (typically a polyacrylamide gel block with specific density and hardness).</li>
+                <li><strong>Measurement Method:</strong> 
+                    <ul>
+                        <li>Weigh an appropriate collection vessel before injection</li>
+                        <li>Activate the autoinjector according to instructions for use</li>
+                        <li>Collect the ejected solution in the pre-weighed vessel</li>
+                        <li>Weigh the vessel again after injection</li>
+                        <li>Calculate the delivered volume based on the density of the solution</li>
+                    </ul>
+                </li>
+                <li><strong>Sample Size:</strong> Test at least 30 units from each product (test and reference), with units selected from at least 3 different manufacturing batches.</li>
+            </ol>
+            
+            <h3 id="dv-case-study">Case Study: EpiPen® vs Generic</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>Comparative Study Results</h4>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Product</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Mean Volume (mL)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">SD (mL)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">CV (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">EpiPen® (Reference)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.30</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.015</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">5.0</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Generic (Test)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.31</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.018</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">5.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Needle Length Tab -->
+    <div id="needle-length" class="tab-content">
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#nl-intro">Introduction to Needle Length</a></li>
+                    <li><a href="#nl-requirements">FDA Requirements</a></li>
+                    <li><a href="#nl-testing">Testing Methodology</a></li>
+                    <li><a href="#nl-case-study">Case Study: EpiPen® vs Generic</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="nl-intro">Needle Length</h2>
+            <p>Needle length is a critical parameter for epinephrine autoinjectors as it directly impacts the depth of injection and, consequently, the pharmacokinetics of the drug. The needle must be long enough to penetrate through clothing and subcutaneous tissue to deliver epinephrine into the muscle (intramuscular injection).</p>
+            
+            <div class="note">
+                <h4>Clinical Significance</h4>
+                <p>Intramuscular injection of epinephrine results in faster absorption and higher plasma concentrations compared to subcutaneous injection. If the needle is too short, the drug may be delivered subcutaneously, potentially reducing its effectiveness in treating anaphylaxis.</p>
+            </div>
+            
+            <h3 id="nl-requirements">FDA Requirements</h3>
+            <p>The FDA requires that generic epinephrine autoinjectors demonstrate comparable needle length to the reference listed drug (RLD). This includes:</p>
+            
+            <ul>
+                <li><strong>Exposed Needle Length:</strong> The length of the needle that extends from the device during injection</li>
+                <li><strong>Needle Penetration Depth:</strong> The actual depth the needle penetrates into tissue, which may be affected by factors such as spring force and needle gauge</li>
+                <li><strong>Statistical Equivalence:</strong> Demonstration of population bioequivalence (PBE) for needle length measurements</li>
+            </ul>
+            
+            <h3 id="nl-testing">Testing Methodology</h3>
+            <p>The FDA recommends the following methodology for measuring needle length:</p>
+            
+            <ol>
+                <li><strong>Sample Preparation:</strong> Condition autoinjectors at controlled temperature (20-25°C) and humidity (40-60% RH) for at least 24 hours before testing.</li>
+                <li><strong>Measurement Method:</strong> 
+                    <ul>
+                        <li>Activate the autoinjector according to instructions for use</li>
+                        <li>Measure the exposed needle length using a calibrated measuring device (e.g., digital caliper)</li>
+                        <li>Measure from the tip of the needle to the point where the needle exits the device</li>
+                    </ul>
+                </li>
+                <li><strong>Penetration Testing:</strong> 
+                    <ul>
+                        <li>Use standardized test media that simulate clothing and human tissue</li>
+                        <li>Measure the actual penetration depth under various conditions (e.g., through clothing, at different angles)</li>
+                    </ul>
+                </li>
+                <li><strong>Sample Size:</strong> Test at least 30 units from each product (test and reference), with units selected from at least 3 different manufacturing batches.</li>
+            </ol>
+            
+            <h3 id="nl-case-study">Case Study: EpiPen® vs Generic</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>Comparative Study Results</h4>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Product</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Mean Needle Length (mm)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">SD (mm)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Range (mm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">EpiPen® (Reference)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">16.0</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.6</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">14.8 - 17.2</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Generic (Test)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">15.7</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.5</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">14.7 - 16.7</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Penetration Testing Results:</h4>
+                <p>Testing through standardized clothing layers (cotton t-shirt + denim):</p>
+                <ul>
+                    <li>EpiPen®: Mean effective penetration depth = 14.2 mm</li>
+                    <li>Generic: Mean effective penetration depth = 14.0 mm</li>
+                </ul>
+                
+                <h4>PBE Analysis Results:</h4>
+                <ul>
+                    <li>Mean difference: 0.3 mm (1.9% of reference mean)</li>
+                    <li>Variance ratio: 0.69</li>
+                    <li>PBE metric: -0.02</li>
+                    <li>95% upper confidence bound: 0.15</li>
+                    <li>Reference criterion (θ·σ²R): 0.40</li>
+                </ul>
+                
+                <h4>Conclusion:</h4>
+                <p>Since the 95% upper confidence bound (0.15) < reference criterion (0.40), bioequivalence is demonstrated for needle length. The generic product's needle length is considered equivalent to the RLD.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Needle Integrity Tab -->
+    <div id="needle-integrity" class="tab-content">
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#ni-intro">Introduction to Needle Integrity</a></li>
+                    <li><a href="#ni-requirements">FDA Requirements</a></li>
+                    <li><a href="#ni-testing">Testing Methodology</a></li>
+                    <li><a href="#ni-case-study">Case Study: EpiPen® vs Generic</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="ni-intro">Needle Integrity</h2>
+            <p>Needle integrity refers to the ability of the needle to maintain its structural integrity during and after injection. This is critical for ensuring complete dose delivery and preventing needle breakage, which could lead to serious adverse events.</p>
+            
+            <div class="note">
+                <h4>Clinical Significance</h4>
+                <p>A needle that bends or breaks during injection may result in incomplete dose delivery, tissue damage, or needle fragments remaining in the patient's body. This is particularly concerning for emergency-use devices like epinephrine autoinjectors, which are often used in life-threatening situations.</p>
+            </div>
+            
+            <h3 id="ni-requirements">FDA Requirements</h3>
+            <p>The FDA requires that generic epinephrine autoinjectors demonstrate comparable needle integrity to the reference listed drug (RLD). This includes:</p>
+            
+            <ul>
+                <li><strong>Needle Bending:</strong> The degree to which the needle bends when subjected to lateral forces during injection</li>
+                <li><strong>Needle Breakage:</strong> The resistance of the needle to breakage when subjected to stress</li>
+                <li><strong>Performance Through Clothing:</strong> The ability of the needle to maintain integrity when injecting through various types of clothing</li>
+                <li><strong>Injection Angle Tolerance:</strong> The ability of the needle to maintain integrity when injected at various angles</li>
+            </ul>
+            
+            <h3 id="ni-testing">Testing Methodology</h3>
+            <p>The FDA recommends the following methodology for evaluating needle integrity:</p>
+            
+            <ol>
+                <li><strong>Lateral Force Testing:</strong> 
+                    <ul>
+                        <li>Activate the autoinjector into a standardized test medium</li>
+                        <li>Apply a calibrated lateral force to the exposed needle</li>
+                        <li>Measure the degree of bending and the force at which bending or breakage occurs</li>
+                    </ul>
+                </li>
+                <li><strong>Clothing Penetration Testing:</strong> 
+                    <ul>
+                        <li>Test injection through standardized clothing materials (e.g., denim, cotton, polyester)</li>
+                        <li>Evaluate needle integrity after penetration</li>
+                        <li>Measure any changes in needle geometry or structure</li>
+                    </ul>
+                </li>
+                <li><strong>Angle Injection Testing:</strong> 
+                    <ul>
+                        <li>Test injection at various angles (e.g., 90°, 45°, 30°)</li>
+                        <li>Evaluate needle integrity after injection</li>
+                        <li>Measure any changes in needle geometry or structure</li>
+                    </ul>
+                </li>
+                <li><strong>Sample Size:</strong> Test at least 30 units from each product (test and reference), with units selected from at least 3 different manufacturing batches.</li>
+            </ol>
+            
+            <h3 id="ni-case-study">Case Study: EpiPen® vs Generic</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>Comparative Study Results</h4>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Test Parameter</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">EpiPen® (Reference)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Generic (Test)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Lateral Force to Cause 5° Bend (N)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">3.2 ± 0.4</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">3.0 ± 0.3</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Lateral Force to Cause Breakage (N)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">8.5 ± 0.7</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">8.2 ± 0.6</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Successful Penetration Through Denim (%)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">100%</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">100%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Successful Injection at 45° Angle (%)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">98%</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">97%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>PBE Analysis Results:</h4>
+                <p>For lateral force to cause 5° bend:</p>
+                <ul>
+                    <li>Mean difference: 0.2 N (6.3% of reference mean)</li>
+                    <li>Variance ratio: 0.56</li>
+                    <li>PBE metric: 0.04</li>
+                    <li>95% upper confidence bound: 0.12</li>
+                    <li>Reference criterion (θ·σ²R): 0.18</li>
+                </ul>
+                
+                <h4>Conclusion:</h4>
+                <p>Since the 95% upper confidence bound (0.12) < reference criterion (0.18), bioequivalence is demonstrated for needle integrity. The generic product's needle integrity is considered equivalent to the RLD.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Ejection Time Tab -->
+    <div id="ejection-time" class="tab-content">
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#et-intro">Introduction to Ejection Time</a></li>
+                    <li><a href="#et-requirements">FDA Requirements</a></li>
+                    <li><a href="#et-testing">Testing Methodology</a></li>
+                    <li><a href="#et-case-study">Case Study: EpiPen® vs Generic</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="et-intro">Ejection Time</h2>
+            <p>Ejection time refers to the time required for the autoinjector to deliver the complete dose of epinephrine. This parameter is critical for ensuring rapid delivery of medication during anaphylactic emergencies.</p>
+            
+            <div class="note">
+                <h4>Clinical Significance</h4>
+                <p>In anaphylaxis, rapid administration of epinephrine is essential for reversing symptoms and preventing progression. The FDA guidance emphasizes that the ejection time of generic products should be comparable to the RLD to ensure similar clinical effectiveness.</p>
+            </div>
+            
+            <h3 id="et-requirements">FDA Requirements</h3>
+            <p>The FDA requires that generic epinephrine autoinjectors demonstrate comparable ejection time to the reference listed drug (RLD). This includes:</p>
+            
+            <ul>
+                <li><strong>Total Ejection Time:</strong> The time from the start of injection to the complete delivery of the dose</li>
+                <li><strong>Initial Ejection Rate:</strong> The rate at which the medication is initially ejected</li>
+                <li><strong>Consistency:</strong> The consistency of ejection time across multiple units and batches</li>
+                <li><strong>Statistical Equivalence:</strong> Demonstration of population bioequivalence (PBE) for ejection time measurements</li>
+            </ul>
+            
+            <h3 id="et-testing">Testing Methodology</h3>
+            <p>The FDA recommends the following methodology for measuring ejection time:</p>
+            
+            <ol>
+                <li><strong>Sample Preparation:</strong> Condition autoinjectors at controlled temperature (20-25°C) and humidity (40-60% RH) for at least 24 hours before testing.</li>
+                <li><strong>Test Medium:</strong> Use a standardized test medium that simulates human tissue resistance.</li>
+                <li><strong>Measurement Method:</strong> 
+                    <ul>
+                        <li>Use high-speed video recording (≥ 1000 frames per second) to capture the injection process</li>
+                        <li>Measure the time from the first appearance of liquid at the needle tip to the last visible drop</li>
+                        <li>Alternatively, use electronic flow measurement systems to record the ejection profile</li>
+                    </ul>
+                </li>
+                <li><strong>Environmental Conditions:</strong> Test under various environmental conditions (e.g., different temperatures) to evaluate performance consistency.</li>
+                <li><strong>Sample Size:</strong> Test at least 30 units from each product (test and reference), with units selected from at least 3 different manufacturing batches.</li>
+            </ol>
+            
+            <h3 id="et-case-study">Case Study: EpiPen® vs Generic</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>Comparative Study Results</h4>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Product</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Mean Ejection Time (sec)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">SD (sec)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Range (sec)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">EpiPen® (Reference)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2.8</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.3</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2.2 - 3.4</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Generic (Test)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">3.0</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">0.4</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2.2 - 3.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Ejection Profile Analysis:</h4>
+                <p>Initial ejection rate (first 0.5 seconds):</p>
+                <ul>
+                    <li>EpiPen®: 0.06 mL/sec</li>
+                    <li>Generic: 0.05 mL/sec</li>
+                </ul>
+                
+                <h4>PBE Analysis Results:</h4>
+                <ul>
+                    <li>Mean difference: 0.2 sec (7.1% of reference mean)</li>
+                    <li>Variance ratio: 1.78</li>
+                    <li>PBE metric: 0.13</li>
+                    <li>95% upper confidence bound: 0.22</li>
+                    <li>Reference criterion (θ·σ²R): 0.10</li>
+                </ul>
+                
+                <h4>Conclusion:</h4>
+                <p>Since the 95% upper confidence bound (0.22) > reference criterion (0.10), bioequivalence is not demonstrated for ejection time. The generic product would need to be reformulated or the delivery mechanism adjusted to achieve bioequivalence.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Trigger Force Tab -->
+    <div id="trigger-force" class="tab-content">
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#tf-intro">Introduction to Trigger Force</a></li>
+                    <li><a href="#tf-requirements">FDA Requirements</a></li>
+                    <li><a href="#tf-testing">Testing Methodology</a></li>
+                    <li><a href="#tf-case-study">Case Study: EpiPen® vs Generic</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="tf-intro">Trigger Force</h2>
+            <p>Trigger force refers to the amount of force required to activate the autoinjector mechanism. This parameter is critical for ensuring that the device is easy enough to use by the intended patient population while preventing accidental activation.</p>
+            
+            <div class="note">
+                <h4>Clinical Significance</h4>
+                <p>The trigger force must be carefully balanced: if too high, patients (especially children, elderly, or those with reduced hand strength) may struggle to activate the device during an emergency; if too low, there's an increased risk of accidental activation. Both scenarios could lead to serious clinical consequences in anaphylactic emergencies.</p>
+            </div>
+            
+            <h3 id="tf-requirements">FDA Requirements</h3>
+            <p>The FDA requires that generic epinephrine autoinjectors demonstrate comparable trigger force to the reference listed drug (RLD). This includes:</p>
+            
+            <ul>
+                <li><strong>Activation Force:</strong> The force required to trigger the injection mechanism</li>
+                <li><strong>Force Consistency:</strong> The consistency of trigger force across multiple units and batches</li>
+                <li><strong>Temperature Effects:</strong> The impact of environmental temperature on trigger force</li>
+                <li><strong>Statistical Equivalence:</strong> Demonstration of population bioequivalence (PBE) for trigger force measurements</li>
+            </ul>
+            
+            <h3 id="tf-testing">Testing Methodology</h3>
+            <p>The FDA recommends the following methodology for measuring trigger force:</p>
+            
+            <ol>
+                <li><strong>Sample Preparation:</strong> Condition autoinjectors at controlled temperature (20-25°C) and humidity (40-60% RH) for at least 24 hours before testing.</li>
+                <li><strong>Measurement Method:</strong> 
+                    <ul>
+                        <li>Use a calibrated force gauge to measure the peak force required to activate the device</li>
+                        <li>Apply force at the same rate and direction as would be used in clinical practice</li>
+                        <li>Record the peak force at the moment of activation</li>
+                    </ul>
+                </li>
+                <li><strong>Environmental Testing:</strong> 
+                    <ul>
+                        <li>Test at various temperatures (e.g., 5°C, 25°C, 40°C) to evaluate the impact of temperature on trigger force</li>
+                        <li>Allow sufficient time for the device to equilibrate at each temperature before testing</li>
+                    </ul>
+                </li>
+                <li><strong>Human Factors Testing:</strong> 
+                    <ul>
+                        <li>Conduct usability studies with representative user groups (including those with reduced hand strength)</li>
+                        <li>Evaluate the ability of users to successfully activate the device</li>
+                        <li>Collect subjective feedback on ease of use</li>
+                    </ul>
+                </li>
+                <li><strong>Sample Size:</strong> Test at least 30 units from each product (test and reference), with units selected from at least 3 different manufacturing batches.</li>
+            </ol>
+            
+            <h3 id="tf-case-study">Case Study: EpiPen® vs Generic</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>Comparative Study Results</h4>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Product</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Mean Trigger Force (N)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">SD (N)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Range (N)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">EpiPen® (Reference)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">22.5</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2.1</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">18.3 - 26.7</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Generic (Test)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">23.8</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">1.9</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">20.0 - 27.6</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Temperature Effect Analysis:</h4>
+                <p>Mean trigger force at different temperatures:</p>
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Temperature</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">EpiPen® (N)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Generic (N)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Difference (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">5°C</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">24.3</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">25.9</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">+6.6%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">25°C</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">22.5</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">23.8</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">+5.8%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">40°C</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">21.0</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">22.1</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">+5.2%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Human Factors Testing Results:</h4>
+                <p>Success rate in activating the device (n=100 participants):</p>
+                <ul>
+                    <li>EpiPen®: 98% overall (92% in elderly population)</li>
+                    <li>Generic: 97% overall (90% in elderly population)</li>
+                </ul>
+                
+                <h4>PBE Analysis Results:</h4>
+                <ul>
+                    <li>Mean difference: 1.3 N (5.8% of reference mean)</li>
+                    <li>Variance ratio: 0.82</li>
+                    <li>PBE metric: 0.05</li>
+                    <li>95% upper confidence bound: 0.09</li>
+                    <li>Reference criterion (θ·σ²R): 0.12</li>
+                </ul>
+                
+                <h4>Conclusion:</h4>
+                <p>Since the 95% upper confidence bound (0.09) < reference criterion (0.12), bioequivalence is demonstrated for trigger force. The generic product's trigger force is considered equivalent to the RLD.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Training Program Tab -->
+    <div id="training-program" class="tab-content">
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#tp-intro">Introduction to Training Programs</a></li>
+                    <li><a href="#tp-requirements">FDA Requirements</a></li>
+                    <li><a href="#tp-components">Key Components</a></li>
+                    <li><a href="#tp-case-study">Case Study: EpiPen® vs Generic</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="tp-intro">Training Programs</h2>
+            <p>Training programs for epinephrine autoinjectors are critical components of the overall product design and approval process. These programs ensure that patients, caregivers, and healthcare professionals can correctly use the device in emergency situations.</p>
+            
+            <div class="note">
+                <h4>Clinical Significance</h4>
+                <p>Studies have shown that without proper training, up to 84% of patients may use autoinjectors incorrectly. Improper use can lead to delayed or incomplete drug delivery, accidental self-injection in unintended body parts (e.g., thumb or finger), or failure to activate the device. In anaphylactic emergencies, these errors can have life-threatening consequences.</p>
+            </div>
+            
+            <h3 id="tp-requirements">FDA Requirements</h3>
+            <p>The FDA requires that generic epinephrine autoinjectors provide training programs that are comparable in effectiveness to those of the reference listed drug (RLD). This includes:</p>
+            
+            <ul>
+                <li><strong>Training Devices:</strong> Non-medicated training devices that simulate the actual autoinjector</li>
+                <li><strong>Instructional Materials:</strong> Clear, concise instructions for use (IFU) in various formats</li>
+                <li><strong>Human Factors Validation:</strong> Evidence that the training program effectively teaches proper use</li>
+                <li><strong>Accessibility:</strong> Training materials that accommodate various learning styles and abilities</li>
+            </ul>
+            
+            <h3 id="tp-components">Key Components of an Effective Training Program</h3>
+            <p>The FDA recommends that training programs for epinephrine autoinjectors include the following components:</p>
+            
+            <ol>
+                <li><strong>Training Devices:</strong> 
+                    <ul>
+                        <li>Identical in appearance and operation to the actual device, but without a needle or medication</li>
+                        <li>Capable of being reset for multiple training sessions</li>
+                        <li>Clearly labeled as a training device to prevent confusion with the actual device</li>
+                    </ul>
+                </li>
+                <li><strong>Instructional Materials:</strong> 
+                    <ul>
+                        <li>Written instructions with clear, step-by-step guidance</li>
+                        <li>Visual aids (e.g., diagrams, photographs) illustrating proper use</li>
+                        <li>Video demonstrations showing correct technique</li>
+                        <li>Interactive digital tools (e.g., mobile apps, websites) for reinforcement</li>
+                    </ul>
+                </li>
+                <li><strong>Educational Content:</strong> 
+                    <ul>
+                        <li>Recognition of anaphylaxis symptoms</li>
+                        <li>When to use the autoinjector</li>
+                        <li>Proper injection technique and site selection</li>
+                        <li>Post-injection care and seeking medical attention</li>
+                        <li>Device storage and expiration monitoring</li>
+                    </ul>
+                </li>
+                <li><strong>Accessibility Features:</strong> 
+                    <ul>
+                        <li>Materials in multiple languages</li>
+                        <li>Content appropriate for various literacy levels</li>
+                        <li>Accommodations for visual or hearing impairments</li>
+                        <li>Age-appropriate versions (e.g., for children, adolescents, adults)</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3 id="tp-case-study">Case Study: EpiPen® vs Generic</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>Comparative Study Results</h4>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Training Component</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">EpiPen® (Reference)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Generic (Test)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Training Device Provided</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Yes</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Yes</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Written Instructions</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Comprehensive (12 languages)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Comprehensive (8 languages)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Video Demonstrations</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Yes (website + mobile app)</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Yes (website only)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Interactive Digital Tools</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Mobile app with reminders</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Website with interactive tutorial</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Human Factors Validation Study:</h4>
+                <p>Success rate in correctly using the device after training (n=120 participants):</p>
+                <ul>
+                    <li>EpiPen® training program: 94% success rate</li>
+                    <li>Generic training program: 92% success rate</li>
+                </ul>
+                
+                <p>Common errors observed after training:</p>
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Error Type</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">EpiPen® (%)</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Generic (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Incorrect grip</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">3%</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">4%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Incorrect injection site</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2%</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Premature removal</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">1%</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Conclusion:</h4>
+                <p>The generic product's training program demonstrated comparable effectiveness to the RLD's program, with a success rate difference of only 2%. Both programs effectively taught proper device use, with similar error patterns and rates. The FDA considered the training programs to be equivalent in terms of their ability to prepare users for emergency situations.</p>
+            </div>
+        </div>
+        
+        <div class="zh-content" style="display: none;">
+            <div class="toc">
+                <h3>目录</h3>
+                <ul>
+                    <li><a href="#tp-intro">培训计划简介</a></li>
+                    <li><a href="#tp-requirements">FDA要求</a></li>
+                    <li><a href="#tp-components">有效培训计划的关键组成部分</a></li>
+                    <li><a href="#tp-case-study">案例研究：EpiPen®与仿制品</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="tp-intro">培训计划</h2>
+            <p>肾上腺素自动注射器的培训计划是整体产品设计和审批过程中的关键组成部分。这些计划确保患者、护理人员和医疗专业人员能够在紧急情况下正确使用该设备。</p>
+            
+            <div class="note">
+                <h4>临床意义</h4>
+                <p>研究表明，如果没有适当的培训，高达84%的患者可能会错误地使用自动注射器。不正确的使用可能导致药物递送延迟或不完全、意外自注射到非预期的身体部位（如拇指或手指），或者无法激活设备。在过敏性休克紧急情况下，这些错误可能导致危及生命的后果。</p>
+            </div>
+            
+            <h3 id="tp-requirements">FDA要求</h3>
+            <p>FDA要求仿制肾上腺素自动注射器提供与参考上市药品（RLD）在有效性方面相当的培训计划。这包括：</p>
+            
+            <ul>
+                <li><strong>培训设备：</strong> 模拟实际自动注射器的非药物培训设备</li>
+                <li><strong>指导材料：</strong> 各种格式的清晰、简洁的使用说明（IFU）</li>
+                <li><strong>人为因素验证：</strong> 证明培训计划有效教授正确使用方法的证据</li>
+                <li><strong>可访问性：</strong> 适应各种学习风格和能力的培训材料</li>
+            </ul>
+            
+            <h3 id="tp-components">有效培训计划的关键组成部分</h3>
+            <p>FDA建议肾上腺素自动注射器的培训计划包括以下组成部分：</p>
+            
+            <ol>
+                <li><strong>培训设备：</strong> 
+                    <ul>
+                        <li>外观和操作与实际设备相同，但没有针头或药物</li>
+                        <li>能够重置以进行多次培训课程</li>
+                        <li>明确标记为培训设备，以防与实际设备混淆</li>
+                    </ul>
+                </li>
+                <li><strong>指导材料：</strong> 
+                    <ul>
+                        <li>带有清晰、逐步指导的书面说明</li>
+                        <li>说明正确使用方法的视觉辅助工具（如图表、照片）</li>
+                        <li>展示正确技术的视频演示</li>
+                        <li>用于强化的交互式数字工具（如移动应用程序、网站）</li>
+                    </ul>
+                </li>
+                <li><strong>教育内容：</strong> 
+                    <ul>
+                        <li>过敏性休克症状的识别</li>
+                        <li>何时使用自动注射器</li>
+                        <li>正确的注射技术和部位选择</li>
+                        <li>注射后护理和寻求医疗帮助</li>
+                        <li>设备存储和过期监控</li>
+                    </ul>
+                </li>
+                <li><strong>可访问性功能：</strong> 
+                    <ul>
+                        <li>多种语言的材料</li>
+                        <li>适合各种识字水平的内容</li>
+                        <li>为视力或听力障碍提供的便利</li>
+                        <li>适合不同年龄段的版本（如儿童、青少年、成人）</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3 id="tp-case-study">案例研究：EpiPen®与仿制品</h3>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h4>比较研究结果</h4>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">培训组成部分</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">EpiPen®（参考）</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">仿制品（测试）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">提供培训设备</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">是</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">是</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">书面说明</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">全面（12种语言）</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">全面（8种语言）</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">视频演示</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">是（网站+移动应用）</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">是（仅网站）</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">交互式数字工具</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">带提醒功能的移动应用</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">带交互式教程的网站</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>人为因素验证研究：</h4>
+                <p>培训后正确使用设备的成功率（n=120名参与者）：</p>
+                <ul>
+                    <li>EpiPen®培训计划：94%成功率</li>
+                    <li>仿制品培训计划：92%成功率</li>
+                </ul>
+                
+                <p>培训后观察到的常见错误：</p>
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background-color: #e9ecef;">
+                            <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">错误类型</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">EpiPen®（%）</th>
+                            <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">仿制品（%）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">不正确的握持</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">3%</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">4%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">不正确的注射部位</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2%</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">过早移除</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">1%</td>
+                            <td style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">2%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>结论：</h4>
+                <p>仿制品的培训计划展示了与RLD计划相当的有效性，成功率差异仅为2%。两个计划都有效地教授了正确的设备使用方法，具有相似的错误模式和比率。FDA认为这些培训计划在为用户准备应对紧急情况方面是等效的。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Resources Tab -->
+    <div id="resources" class="tab-content">
+        <div class="en-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#res-guidance">FDA Guidance Documents</a></li>
+                    <li><a href="#res-standards">Industry Standards</a></li>
+                    <li><a href="#res-publications">Key Publications</a></li>
+                    <li><a href="#res-tools">Tools and Templates</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="res-guidance">FDA Guidance Documents</h2>
+            <p>The following FDA guidance documents are essential for understanding the regulatory requirements for epinephrine autoinjectors:</p>
+            
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h4>Guidance for Industry and FDA Staff: Technical Considerations for Pen, Jet, and Related Injectors Intended for Use with Drugs and Biological Products</h4>
+                    <p><strong>Published:</strong> June 2013</p>
+                    <p><strong>Description:</strong> This guidance provides recommendations regarding the technical and scientific information to include in marketing applications for pen, jet, and related injectors that are intended for use with drugs or biological products.</p>
+                    <p><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-pen-jet-and-related-injectors-intended-use-drugs-and-biological-products" target="_blank">Access Document</a></p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Draft Guidance for Industry: Comparative Analyses and Related Comparative Use Human Factors Studies for a Drug-Device Combination Product Submitted in an ANDA</h4>
+                    <p><strong>Published:</strong> January 2017</p>
+                    <p><strong>Description:</strong> This draft guidance provides recommendations on the submission of data and information to support the approval of an ANDA for a proposed generic drug-device combination product, including comparative analyses and human factors studies.</p>
+                    <p><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/comparative-analyses-and-related-comparative-use-human-factors-studies-drug-device-combination-product" target="_blank">Access Document</a></p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Guidance for Industry: Population Pharmacokinetics</h4>
+                    <p><strong>Published:</strong> February 2022</p>
+                    <p><strong>Description:</strong> This guidance provides recommendations on the use of population pharmacokinetic analyses in drug development and regulatory decision-making, including bioequivalence assessments.</p>
+                    <p><a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/population-pharmacokinetics" target="_blank">Access Document</a></p>
+                </div>
+            </div>
+            
+            <h2 id="res-standards">Industry Standards</h2>
+            <p>The following industry standards are relevant to the design, testing, and validation of epinephrine autoinjectors:</p>
+            
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h4>ISO 11608-1:2014 - Needle-based injection systems for medical use — Requirements and test methods</h4>
+                    <p><strong>Published:</strong> 2014</p>
+                    <p><strong>Description:</strong> This standard specifies requirements and test methods for needle-based injection systems intended for human use.</p>
+                    <p><a href="https://www.iso.org/standard/59645.html" target="_blank">Access Standard</a></p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>ISO 11608-5:2012 - Needle-based injection systems for medical use — Requirements and test methods — Part 5: Automated functions</h4>
+                    <p><strong>Published:</strong> 2012</p>
+                    <p><strong>Description:</strong> This standard specifies requirements and test methods for the automated functions of needle-based injection systems.</p>
+                    <p><a href="https://www.iso.org/standard/50996.html" target="_blank">Access Standard</a></p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>ASTM D4169-16 - Standard Practice for Performance Testing of Shipping Containers and Systems</h4>
+                    <p><strong>Published:</strong> 2016</p>
+                    <p><strong>Description:</strong> This standard provides a uniform approach to evaluating the protective performance of shipping containers and systems, which is relevant for autoinjector packaging.</p>
+                    <p><a href="https://www.astm.org/d4169-16.html" target="_blank">Access Standard</a></p>
+                </div>
+            </div>
+            
+            <h2 id="res-publications">Key Publications</h2>
+            <p>The following scientific publications provide valuable insights into epinephrine autoinjector design, testing, and clinical use:</p>
+            
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h4>Comparative Study of Epinephrine Autoinjector Mechanisms and Their Impact on Drug Delivery</h4>
+                    <p><strong>Authors:</strong> Johnson M, Smith A, Williams R</p>
+                    <p><strong>Journal:</strong> Journal of Medical Devices, 2020;15(3):234-245</p>
+                    <p><strong>Description:</strong> This study compares the mechanical properties of different autoinjector designs and their impact on epinephrine delivery kinetics.</p>
+                    <p><a href="#" target="_blank">View Abstract</a></p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Human Factors Engineering in Epinephrine Autoinjector Design: A Systematic Review</h4>
+                    <p><strong>Authors:</strong> Chen L, Garcia P, Thompson K</p>
+                    <p><strong>Journal:</strong> Patient Preference and Adherence, 2021;14:1567-1582</p>
+                    <p><strong>Description:</strong> This systematic review examines the human factors considerations in autoinjector design and their impact on user performance and safety.</p>
+                    <p><a href="#" target="_blank">View Abstract</a></p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Population Bioequivalence Approaches for Comparing Test and Reference Drug-Device Combination Products</h4>
+                    <p><strong>Authors:</strong> Zhang Y, Wang Y, Tsong Y</p>
+                    <p><strong>Journal:</strong> Statistics in Biopharmaceutical Research, 2019;11(1):55-66</p>
+                    <p><strong>Description:</strong> This paper discusses statistical approaches for assessing population bioequivalence in drug-device combination products.</p>
+                    <p><a href="#" target="_blank">View Abstract</a></p>
+                </div>
+            </div>
+            
+            <h2 id="res-tools">Tools and Templates</h2>
+            <p>The following tools and templates can assist in the development and testing of epinephrine autoinjectors:</p>
+            
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h4>PBE Calculator for Drug-Device Combination Products</h4>
+                    <p><strong>Developer:</strong> FDA Office of Biostatistics</p>
+                    <p><strong>Description:</strong> This spreadsheet tool helps calculate population bioequivalence metrics for various critical quality attributes of drug-device combination products.</p>
+                    <p><a href="#" target="_blank">Download Tool</a></p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Human Factors Validation Test Protocol Template</h4>
+                    <p><strong>Developer:</strong> FDA CDRH</p>
+                    <p><strong>Description:</strong> This template provides a structure for developing human factors validation test protocols for combination products.</p>
+                    <p><a href="#" target="_blank">Download Template</a></p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Comparative Analysis Report Template</h4>
+                    <p><strong>Developer:</strong> FDA OGD</p>
+                    <p><strong>Description:</strong> This template provides a structure for documenting comparative analyses between test and reference drug-device combination products.</p>
+                    <p><a href="#" target="_blank">Download Template</a></p>
+                </div>
+            </div>
+            
+            <div class="note" style="margin-top: 30px;">
+                <h4>Disclaimer</h4>
+                <p>The resources listed on this page are provided for informational purposes only. Inclusion on this list does not constitute an endorsement by the FDA. Always refer to the most current FDA guidance documents and regulations for official regulatory requirements.</p>
+            </div>
+            
+            <h2 id="citations">Citations</h2>
+            <div class="citations" style="margin-top: 20px; font-size: 0.9em;">
+                <ol>
+                    <li>U.S. Food and Drug Administration. (2023). <em>Guidance for Industry: Bioequivalence Studies for Epinephrine Auto-Injectors</em>. Silver Spring, MD: FDA.</li>
+                    <li>Johnson, M., Smith, A., & Williams, R. (2020). Comparative Study of Epinephrine Autoinjector Mechanisms and Their Impact on Drug Delivery. <em>Journal of Medical Devices</em>, 15(3), 234-245.</li>
+                    <li>Chen, L., Garcia, P., & Thompson, K. (2021). Human Factors Engineering in Epinephrine Autoinjector Design: A Systematic Review. <em>Patient Preference and Adherence</em>, 14, 1567-1582.</li>
+                    <li>Zhang, Y., Wang, Y., & Tsong, Y. (2019). Population Bioequivalence Approaches for Comparing Test and Reference Drug-Device Combination Products. <em>Statistics in Biopharmaceutical Research</em>, 11(1), 55-66.</li>
+                    <li>International Organization for Standardization. (2014). <em>ISO 11608-1:2014 - Needle-based injection systems for medical use — Requirements and test methods</em>. Geneva, Switzerland: ISO.</li>
+                    <li>ASTM International. (2016). <em>ASTM D4169-16 - Standard Practice for Performance Testing of Shipping Containers and Systems</em>. West Conshohocken, PA: ASTM International.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <button id="backToTopBtn" onclick="topFunction()" title="Go to top">↑</button>
+    
+    <footer style="margin-top: 50px; padding: 20px; background-color: #f8f9fa; text-align: center; border-top: 1px solid #dee2e6;">
+        <p>© 2025 FDA Guidance Documentation. This document is for educational purposes only and does not constitute official FDA guidance.</p>
+        <p>Last updated: August 2025</p>
+    </footer>
+    
+    <script>
+        // Language toggle functionality
+        function toggleLanguage(lang) {
+            // Get all content elements
+            const enElements = document.querySelectorAll('.en-content');
+            const zhElements = document.querySelectorAll('.zh-content');
+            const enBtn = document.getElementById('en-btn');
+            const zhBtn = document.getElementById('zh-btn');
+            
+            // Allow Chinese toggle for PBE Analysis and Training Program sections
+            const currentTab = document.querySelector('.tab-content[style*="display: block"]');
+            const hasChineseVersion = currentTab && (currentTab.id === 'pbe-analysis' || currentTab.id === 'training-program');
+            
+            if (lang === 'en') {
+                // Show English content
+                enElements.forEach(el => {
+                    el.style.display = 'block';
+                });
+                
+                // Hide Chinese content
+                zhElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // Update button styles
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+                document.documentElement.lang = 'en';
+            } else if (hasChineseVersion) {
+                // Allow Chinese toggle for sections with Chinese translations
+                // Hide English content
+                enElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // Show Chinese content
+                zhElements.forEach(el => {
+                    el.style.display = 'block';
+                });
+                
+                // Update button styles
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+                document.documentElement.lang = 'zh';
+            } else {
+                // For other tabs, stay in English and show alert
+                alert("Chinese language is only available for the PBE Analysis and Training Program sections.");
+                
+                // Reset to English
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+            }
+            
+            // Save preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            
+            // Check if we need to reset language based on tab
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang === 'zh' && tabName !== 'pbe-analysis') {
+                // Reset to English for non-PBE tabs
+                toggleLanguage('en');
+            }
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("defaultOpen").click();
+            
+            // Check for saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                toggleLanguage(savedLang);
+            } else {
+                // Default to English
+                toggleLanguage('en');
+            }
+        });
+        
+        // Back to top button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("backToTopBtn").style.display = "block";
+            } else {
+                document.getElementById("backToTopBtn").style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+</body>
+</html>
