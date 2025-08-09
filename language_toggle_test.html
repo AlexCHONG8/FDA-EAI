@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Toggle Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .language-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .language-toggle button {
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .language-toggle button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-toggle">
+        <button id="en-btn" onclick="toggleLanguage('en')" class="active">English</button>
+        <button id="zh-btn" onclick="toggleLanguage('zh')">中文</button>
+    </div>
+
+    <div class="content-section">
+        <div class="en-content">
+            <h1>Language Toggle Test</h1>
+            <p>This is a test of the language toggle functionality. Click the buttons above to switch between English and Chinese.</p>
+            <h2>Sample Content</h2>
+            <p>This is some sample content in English.</p>
+        </div>
+        
+        <div class="zh-content" style="display: none;">
+            <h1>语言切换测试</h1>
+            <p>这是语言切换功能的测试。点击上方按钮在英文和中文之间切换。</p>
+            <h2>示例内容</h2>
+            <p>这是一些中文示例内容。</p>
+        </div>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        function toggleLanguage(lang) {
+            console.log("Toggling language to: " + lang);
+            
+            // Get all content elements
+            const enElements = document.querySelectorAll('.en-content');
+            const zhElements = document.querySelectorAll('.zh-content');
+            const enBtn = document.getElementById('en-btn');
+            const zhBtn = document.getElementById('zh-btn');
+            
+            console.log("Found " + enElements.length + " English elements");
+            console.log("Found " + zhElements.length + " Chinese elements");
+            
+            if (lang === 'en') {
+                // Show English content
+                enElements.forEach(el => {
+                    el.style.display = 'block';
+                    console.log("Showing English element");
+                });
+                
+                // Hide Chinese content
+                zhElements.forEach(el => {
+                    el.style.display = 'none';
+                    console.log("Hiding Chinese element");
+                });
+                
+                // Update button styles
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+                document.documentElement.lang = 'en';
+            } else {
+                // Hide English content
+                enElements.forEach(el => {
+                    el.style.display = 'none';
+                    console.log("Hiding English element");
+                });
+                
+                // Show Chinese content
+                zhElements.forEach(el => {
+                    el.style.display = 'block';
+                    console.log("Showing Chinese element");
+                });
+                
+                // Update button styles
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+                document.documentElement.lang = 'zh';
+            }
+        }
+    </script>
+</body>
+</html>

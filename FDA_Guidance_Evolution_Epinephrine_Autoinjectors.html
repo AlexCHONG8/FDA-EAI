@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDA Guidance Evolution: Epinephrine Autoinjectors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #005a9c;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .highlight {
+            background-color: #fffacd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .note {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #fff0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .formula {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: "Courier New", monospace;
+            overflow-x: auto;
+        }
+        .reference {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .calculator {
+            background-color: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .calculator input, .calculator select {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .calculator button {
+            background-color: #005a9c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .calculator button:hover {
+            background-color: #004080;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        /* Tab Navigation Styles */
+        .tab-nav {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+            border-bottom: 1px solid #dee2e6;
+            background-color: #fff;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        .tab-nav li {
+            margin-bottom: -1px;
+        }
+        
+        .tab-nav button {
+            border: 1px solid transparent;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: block;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            color: #495057;
+        }
+        
+        .tab-nav button:hover {
+            border-color: #e9ecef #e9ecef #dee2e6;
+            background-color: #f8f9fa;
+        }
+        
+        .tab-nav button.active {
+            color: #007bff;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+            font-weight: bold;
+        }
+        
+        /* Tab Content Styles */
+        .tab-content {
+            display: none;
+            background-color: white;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border: 1px solid #dee2e6;
+            border-top: none;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Language Toggle */
+        .language-toggle {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        
+        .language-toggle button {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        
+        .language-toggle button:first-child {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .language-toggle button:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .functional-req {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+        }
+        
+        .test-equipment, .test-procedure, .test-results {
+            margin-bottom: 20px;
+        }
+        
+        .test-steps {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FDA Guidance Evolution: Epinephrine Autoinjectors (2016-2025)</h1>
+        
+        <div class="language-toggle">
+            <button onclick="toggleLanguage('english')" class="active">English</button>
+            <button onclick="toggleLanguage('chinese')">中文</button>
+        </div>
+        
+        <div class="english-content">
+            <!-- Main Navigation Tabs -->
+            <ul class="tab-nav">
+                <li><button class="tab-button active" onclick="openTab(event, 'overview')">Overview</button></li>
+                <li><button class="tab-button" onclick="openTab(event, 'pbe-analysis')">PBE Analysis</button></li>
+                <li><button class="tab-button" onclick="openTab(event, 'delivered-volume')">Delivered Volume</button></li>
+                <li><button class="tab-button" onclick="openTab(event, 'needle-length')">Needle Length</button></li>
+                <li><button class="tab-button" onclick="openTab(event, 'needle-integrity')">Needle Integrity</button></li>
+                <li><button class="tab-button" onclick="openTab(event, 'ejection-time')">Ejection Time</button></li>
+                <li><button class="tab-button" onclick="openTab(event, 'trigger-force')">Trigger Force</button></li>
+                <li><button class="tab-button" onclick="openTab(event, 'training')">Training Program</button></li>
+                <li><button class="tab-button" onclick="openTab(event, 'resources')">Resources</button></li>
+            </ul>
+            
+            <!-- Tab Content -->
+            <div id="overview" class="tab-content active">
+                <h2>Introduction</h2>
+                <p>This document provides a comprehensive overview of the FDA's evolving guidance for epinephrine autoinjector generic approvals from 2016 to 2025. It covers the key changes in requirements, testing methodologies, and statistical approaches that have shaped the regulatory landscape for these critical emergency medical devices.</p>
+                
+                <h2>Evolution of FDA Guidance (2016-2025)</h2>
+                <p>The FDA's approach to epinephrine autoinjector approvals has undergone significant changes over the past decade, reflecting advances in understanding of device performance characteristics and their clinical relevance.</p>
+                
+                <h3>2016-2018: Initial Guidance Period</h3>
+                <p>The FDA's initial guidance focused primarily on the following aspects:</p>
+                <ul>
+                    <li>Delivered dose accuracy as the primary endpoint</li>
+                    <li>Limited emphasis on device-user interface characteristics</li>
+                    <li>Traditional bioequivalence statistical approaches</li>
+                    <li>Relatively small sample size requirements (typically n=60)</li>
+                </ul>
+                
+                <h3>2019-2021: Transition Period</h3>
+                <p>During this period, the FDA began to recognize the importance of additional performance characteristics:</p>
+                <ul>
+                    <li>Introduction of Population Bioequivalence (PBE) statistical approach</li>
+                    <li>Increased focus on needle exposure time and penetration depth</li>
+                    <li>Emergence of injection force profiles as critical quality attributes</li>
+                    <li>Expanded sample size requirements (typically n=100-120)</li>
+                    <li>Greater emphasis on human factors studies</li>
+                </ul>
+                
+                <h3>2022-2025: Current Guidance</h3>
+                <p>The most recent FDA guidance represents a comprehensive approach to epinephrine autoinjector equivalence:</p>
+                <ul>
+                    <li>Mandatory use of Population Bioequivalence (PBE) for critical performance parameters</li>
+                    <li>Five key performance tests required for approval:
+                        <ol>
+                            <li>Delivered volume</li>
+                            <li>Extended needle length</li>
+                            <li>Needle integrity after injection</li>
+                            <li>Injection/ejection time</li>
+                            <li>Activation force</li>
+                        </ol>
+                    </li>
+                    <li>Larger sample sizes (typically n=180-240)</li>
+                    <li>Comprehensive human factors validation studies</li>
+                    <li>Robust comparative use studies</li>
+                </ul>
+                
+                <h2>Conclusion</h2>
+                <p>The FDA's guidance for epinephrine autoinjectors has evolved significantly from 2016 to 2025, with an increasing emphasis on comprehensive performance testing, statistical rigor, and human factors considerations. Manufacturers seeking approval for generic epinephrine autoinjectors must navigate these complex requirements through careful test design, robust statistical analysis, and thorough documentation. By understanding the current regulatory landscape and anticipating potential challenges, developers can optimize their product development and submission strategies for successful approval.</p>
+            </div>
+            
+            <div id="pbe-analysis" class="tab-content">
+                <h2>Population Bioequivalence (PBE) Explanation</h2>
+                <p>Population Bioequivalence (PBE) has become the statistical method of choice for the FDA when evaluating epinephrine autoinjector equivalence. This approach offers several advantages over traditional average bioequivalence methods:</p>
+                
+                <div class="note">
+                    <h4>Key Advantages of PBE</h4>
+                    <ul>
+                        <li>Accounts for both differences in means and variances between test and reference products</li>
+                        <li>Better reflects the total population experience with the product</li>
+                        <li>More sensitive to detecting clinically meaningful differences</li>
+                        <li>Provides a more comprehensive assessment of switchability between products</li>
+                    </ul>
+                </div>
+                
+                <h3>PBE Mathematical Framework</h3>
+                <p>The PBE criterion is expressed as:</p>
+                <div class="formula">
+                    (μT - μR)² + (σ²T - σ²R) ≤ θ·σ²R
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>μT and μR are the means of the test and reference products</li>
+                    <li>σ²T and σ²R are the variances of the test and reference products</li>
+                    <li>θ is the regulatory constant (typically set at 1.111)</li>
+                </ul>
+                
+                <p>This can be reformulated as a linearized criterion:</p>
+                <div class="formula">
+                    PBE = (μT - μR)²/σ²R + (σ²T/σ²R - 1) ≤ θ
+                </div>
+                
+                <h3>Hypothesis Testing Framework</h3>
+                <p>The statistical testing is set up as:</p>
+                <ul>
+                    <li>H0 (null hypothesis): PBE > θ (products are not equivalent)</li>
+                    <li>H1 (alternative hypothesis): PBE ≤ θ (products are equivalent)</li>
+                </ul>
+                <p>The test is conducted at a significance level of α = 0.05, and the null hypothesis is rejected if the upper 95% confidence bound of the linearized PBE criterion is less than or equal to θ.</p>
+                
+                <h2>Sample Size Calculation for PBE Studies</h2>
+                <p>Determining the appropriate sample size for PBE studies is critical to ensure adequate statistical power while managing resources efficiently.</p>
+                
+                <div class="calculator">
+                    <h3>Sample Size Calculator</h3>
+                    <form id="sampleSizeForm">
+                        <div>
+                            <label for="meanDiff">Expected Mean Difference (as % of Reference Mean):</label>
+                            <input type="number" id="meanDiff" step="0.1" value="2.0" min="0" max="10">
+                        </div>
+                        <div>
+                            <label for="refCV">Reference Product CV (%):</label>
+                            <input type="number" id="refCV" step="0.1" value="10.0" min="1" max="30">
+                        </div>
+                        <div>
+                            <label for="testCV">Test Product CV (%):</label>
+                            <input type="number" id="testCV" step="0.1" value="12.0" min="1" max="30">
+                        </div>
+                        <div>
+                            <label for="power">Desired Power (%):</label>
+                            <input type="number" id="power" step="1" value="90" min="80" max="99">
+                        </div>
+                        <div>
+                            <label for="theta">Regulatory Constant (θ):</label>
+                            <input type="number" id="theta" step="0.001" value="1.111" min="0.5" max="2.0">
+                        </div>
+                        <button type="button" onclick="calculateSampleSize()">Calculate Sample Size</button>
+                    </form>
+                    <div id="sampleSizeResult" class="result"></div>
+                </div>
+            </div>
+            
+            <div id="delivered-volume" class="tab-content">
+                <h2>Delivered Volume Testing</h2>
+                
+                <div class="functional-req">
+                    <h3>Requirement Overview</h3>
+                    <p><strong>Definition:</strong> The volume of drug solution delivered by the auto-injector must be consistent and comparable to the RLD.</p>
+                    <p><strong>Regulatory Basis:</strong> This is a primary bioequivalence endpoint in all FDA guidance documents from 2016 to 2025.</p>
+                    <p><strong>Critical Quality Attribute:</strong> Delivered volume directly impacts the dose of medication received by the patient, which is critical for therapeutic effect.</p>
+                </div>
+                
+                <h3>Test Method and Equipment</h3>
+                <div class="test-equipment">
+                    <h4>Required Equipment:</h4>
+                    <ul>
+                        <li>Analytical balance with precision of at least 0.1 mg</li>
+                        <li>Temperature-controlled environment</li>
+                        <li>Collection vessels (e.g., pre-weighed vials)</li>
+                        <li>Density measurement apparatus</li>
+                        <li>Test fixture to hold auto-injector during activation</li>
+                        <li>Calibration weights</li>
+                    </ul>
+                    
+                    <h4>Test Setup:</h4>
+                    <p>The test setup should include a fixture that holds the auto-injector in a vertical position (needle down) and allows for consistent activation. The collection vessel should be positioned to capture the entire ejected volume without loss.</p>
+                    
+                    <div class="note">
+                        <strong>Important:</strong> The density of the drug solution must be accurately determined to convert weight measurements to volume.
+                    </div>
+                </div>
+                
+                <h3>Test Procedure</h3>
+                <div class="test-procedure">
+                    <ol class="test-steps">
+                        <li>Condition all test units at controlled temperature (20-25°C) and humidity (40-60% RH) for at least 24 hours</li>
+                        <li>Calibrate the analytical balance using certified weights</li>
+                        <li>Pre-weigh each collection vessel and record the weight (W1)</li>
+                        <li>Position the auto-injector in the test fixture with the needle pointing into the collection vessel</li>
+                        <li>Activate the auto-injector according to the instructions for use</li>
+                        <li>Allow the full injection cycle to complete</li>
+                        <li>Weigh the collection vessel containing the ejected solution and record the weight (W2)</li>
+                        <li>Calculate the weight of the ejected solution: W = W2 - W1</li>
+                        <li>Convert the weight to volume using the measured density of the solution: V = W / ρ</li>
+                        <li>Repeat for all test units across all batches</li>
+                        <li>Perform identical testing on the reference product units</li>
+                    </ol>
+                    
+                    <div class="note">
+                        <strong>Alternative Method:</strong> Some testing protocols use direct volume measurement using calibrated syringes or pipettes, but weight-based measurement is generally preferred for its higher precision.
+                    </div>
+                </div>
+                
+                <h3>Statistical Analysis</h3>
+                <div class="test-results">
+                    <h4>Data Collection:</h4>
+                    <ul>
+                        <li>Test product: Minimum 3 batches, 60 units per batch (2023 guidance)</li>
+                        <li>Reference product: Minimum 3 batches, 60 units per batch (2023 guidance)</li>
+                    </ul>
+                    
+                    <h4>PBE Analysis:</h4>
+                    <ol>
+                        <li>Calculate means (μT and μR) for test and reference products</li>
+                        <li>Calculate variances (σ²T and σ²R) for test and reference products</li>
+                        <li>Calculate the PBE metric: (μT - μR)² + (σ²T - σ²R)</li>
+                        <li>Compare to the criterion: θ × σ²R (where θ = 1.111)</li>
+                        <li>Calculate 95% upper confidence bound of the PBE metric</li>
+                        <li>If the upper confidence bound is less than or equal to the criterion, bioequivalence is demonstrated</li>
+                    </ol>
+                    
+                    <div class="note">
+                        <strong>Acceptance Criteria:</strong> The 95% upper confidence bound of the PBE metric must be less than or equal to θ × σ²R to demonstrate bioequivalence for delivered volume.
+                    </div>
+                </div>
+                
+                <h3>Implementation for Summed Medtech Project</h3>
+                <p>For the Summed Medtech project using Ompi 22G, 16mm, 1ml PFS:</p>
+                <ul>
+                    <li><strong>PFS Selection:</strong> The Ompi 1ml PFS must be filled with the appropriate volume to account for dead space and ensure delivered volume matches the RLD</li>
+                    <li><strong>Overfill Determination:</strong> Must be determined through characterization studies of the specific PFS and auto-injector combination</li>
+                    <li><strong>Mechanical Design:</strong> Must ensure consistent and complete expression of the syringe contents</li>
+                    <li><strong>Verification Testing:</strong> Should be conducted with PFS from multiple Ompi manufacturing batches to capture component variability</li>
+                    <li><strong>RLD Characterization:</strong> Comprehensive measurement of Epipen and Teva auto-injector delivered volumes to establish target specifications</li>
+                </ul>
+                
+                <div class="warning">
+                    <strong>Critical Consideration:</strong> The delivered volume must account for the labeled dose plus any overfill required to ensure the patient receives the full therapeutic dose, considering dead space in the needle and potential incomplete expression.
+                </div>
+            </div>
+            
+            <div id="needle-length" class="tab-content">
+                <h2>Extended Needle Length Testing</h2>
+                
+                <div class="functional-req">
+                    <h3>Requirement Overview</h3>
+                    <p><strong>Definition:</strong> The needle must extend to a consistent length that matches the RLD, ensuring proper intramuscular or subcutaneous delivery.</p>
+                    <p><strong>Regulatory Basis:</strong> This is a primary bioequivalence endpoint introduced in the 2018 FDA guidance and maintained in subsequent guidance documents.</p>
+                    <p><strong>Critical Quality Attribute:</strong> Extended needle length directly impacts the depth of injection, which determines whether the medication is delivered to the intended tissue layer (e.g., intramuscular vs. subcutaneous).</p>
+                </div>
+                
+                <h3>Test Method and Equipment</h3>
+                <div class="test-equipment">
+                    <h4>Required Equipment:</h4>
+                    <ul>
+                        <li>High-precision digital calipers (accuracy of at least 0.01mm)</li>
+                        <li>High-resolution imaging system with measurement capabilities</li>
+                        <li>Test fixture to hold auto-injector during activation</li>
+                        <li>Transparent capture medium (e.g., clear gel block) to visualize needle extension</li>
+                        <li>Temperature and humidity controlled environment</li>
+                        <li>Calibration standards for measurement verification</li>
+                    </ul>
+                    
+                    <h4>Test Setup:</h4>
+                    <p>The test setup should include a fixture that holds the auto-injector in a consistent position and allows for activation while enabling precise measurement of the extended needle length. The measurement should be taken from the tip of the needle to the surface that would contact the patient's skin.</p>
+                    
+                    <div class="note">
+                        <strong>Important:</strong> The measurement system must be validated to ensure accuracy and precision across the expected range of needle extension lengths.
+                    </div>
+                </div>
+                
+                <h3>Test Procedure</h3>
+                <div class="test-procedure">
+                    <ol class="test-steps">
+                        <li>Condition all test units at controlled temperature (20-25°C) and humidity (40-60% RH) for at least 24 hours</li>
+                        <li>Calibrate the measurement system using certified standards</li>
+                        <li>Position the auto-injector in the test fixture</li>
+                        <li>Activate the auto-injector according to the instructions for use</li>
+                        <li>Capture the fully extended needle position using the imaging system or allow the needle to extend into the transparent capture medium</li>
+                        <li>Measure the extended needle length from the tip of the needle to the reference plane (simulated skin surface)</li>
+                        <li>Record the measurement and reset the test fixture</li>
+                        <li>Repeat for all test units across all batches</li>
+                        <li>Perform identical testing on the reference product units</li>
+                    </ol>
+                    
+                    <div class="note">
+                        <strong>Alternative Method:</strong> Some testing protocols use high-speed video to capture the dynamic needle extension process, which can provide additional information about the speed and consistency of needle deployment.
+                    </div>
+                </div>
+                
+                <h3>Statistical Analysis</h3>
+                <div class="test-results">
+                    <h4>Data Collection:</h4>
+                    <ul>
+                        <li>Test product: Minimum 3 batches, 10 units per batch (2023 guidance)</li>
+                        <li>Reference product: Minimum 3 batches, 10 units per batch (2023 guidance)</li>
+                    </ul>
+                    
+                    <h4>PBE Analysis:</h4>
+                    <ol>
+                        <li>Calculate means (μT and μR) for test and reference products</li>
+                        <li>Calculate variances (σ²T and σ²R) for test and reference products</li>
+                        <li>Calculate the PBE metric: (μT - μR)² + (σ²T - σ²R)</li>
+                        <li>Compare to the criterion: θ × σ²R (where θ = 1.111)</li>
+                        <li>Calculate 95% upper confidence bound of the PBE metric</li>
+                        <li>If the upper confidence bound is less than or equal to the criterion, bioequivalence is demonstrated</li>
+                    </ol>
+                    
+                    <div class="note">
+                        <strong>Acceptance Criteria:</strong> The 95% upper confidence bound of the PBE metric must be less than or equal to θ × σ²R to demonstrate bioequivalence for extended needle length.
+                    </div>
+                </div>
+                
+                <h3>Implementation for Summed Medtech Project</h3>
+                <p>For the Summed Medtech project using Ompi 22G, 16mm, 1ml PFS:</p>
+                <ul>
+                    <li><strong>Needle Specifications:</strong> Ompi 22G, 16mm needle must be compatible with the auto-injector design</li>
+                    <li><strong>Mechanical Design:</strong> Must include precise mechanical stops to ensure consistent needle extension that matches the RLD</li>
+                    <li><strong>Tolerance Analysis:</strong> Must account for component tolerances in the PFS, needle shield, and auto-injector housing</li>
+                    <li><strong>Verification Testing:</strong> Should be conducted with PFS from multiple Ompi manufacturing batches to capture component variability</li>
+                    <li><strong>RLD Characterization:</strong> Comprehensive measurement of Epipen and Teva auto-injector needle extension to establish target specifications</li>
+                </ul>
+                
+                <div class="warning">
+                    <strong>Critical Consideration:</strong> The extended needle length must be sufficient to ensure proper intramuscular delivery while not exceeding the length that could potentially cause safety concerns (e.g., reaching bone or penetrating too deeply).
+                </div>
+            </div>
+            
+            <div id="needle-integrity" class="tab-content">
+                <h2>Needle Integrity Testing</h2>
+                
+                <div class="functional-req">
+                    <h3>Requirement Overview</h3>
+                    <p><strong>Definition:</strong> The needle must maintain its integrity after injection through various materials at different angles, matching the performance of the RLD.</p>
+                    <p><strong>Regulatory Basis:</strong> This is a supportive study that has evolved from basic assessment in 2018 to comprehensive testing in the 2023 guidance.</p>
+                    <p><strong>Critical Quality Attribute:</strong> Needle integrity ensures successful delivery of medication through clothing or other barriers without needle damage that could affect injection performance or patient safety.</p>
+                </div>
+                
+                <h3>Test Method and Equipment</h3>
+                <div class="test-equipment">
+                    <h4>Required Equipment:</h4>
+                    <ul>
+                        <li>Test materials of different penetration challenges (at least three types)</li>
+                        <li>Adjustable angle test fixture</li>
+                        <li>Optical microscope with at least 40x magnification</li>
+                        <li>Digital imaging system for documentation</li>
+                        <li>Force measurement system (optional, for penetration force measurement)</li>
+                        <li>Reference standards for needle damage classification</li>
+                    </ul>
+                    
+                    <h4>Test Materials:</h4>
+                    <p>Based on RLD labeling claims (e.g., "designed to work through clothing"), select at least three materials such as:</p>
+                    <ul>
+                        <li>Denim fabric (heavy-duty, representing thick clothing)</li>
+                        <li>Cotton fabric (medium-weight, representing typical clothing)</li>
+                        <li>Synthetic fabric (e.g., polyester, representing athletic wear)</li>
+                        <li>Leather or vinyl (representing challenging materials)</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <strong>Important:</strong> The selected test materials should represent the range of materials that might be encountered in real-world use scenarios based on the RLD's labeling claims.
+                    </div>
+                </div>
+                
+                <h3>Test Procedure</h3>
+                <div class="test-procedure">
+                    <ol class="test-steps">
+                        <li>Select at least three test materials with different penetration challenges</li>
+                        <li>Configure the test fixture to hold the material at the first test angle (e.g., 90° perpendicular to the surface)</li>
+                        <li>Position the auto-injector against the material in the test fixture</li>
+                        <li>Activate the auto-injector according to the instructions for use</li>
+                        <li>Allow the full injection cycle to complete</li>
+                        <li>Carefully remove the auto-injector and examine the needle under the microscope</li>
+                        <li>Document any needle damage, deformation, or bending with digital images</li>
+                        <li>Classify the needle condition according to predefined criteria</li>
+                        <li>Repeat steps 3-8 for each test unit</li>
+                        <li>Reconfigure the test fixture for the next angle of incidence (e.g., 45°, 60°)</li>
+                        <li>Repeat the entire process for all test angles and materials</li>
+                        <li>Perform identical testing on the reference product units</li>
+                    </ol>
+                    
+                    <h4>Test Angles:</h4>
+                    <p>The 2023 guidance requires testing at at least three angles of incidence, typically:</p>
+                    <ul>
+                        <li>90° (perpendicular to the surface)</li>
+                        <li>45° (moderate angle)</li>
+                        <li>30° or 60° (extreme angle)</li>
+                    </ul>
+                </div>
+                
+                <h3>Evaluation Criteria</h3>
+                <div class="test-results">
+                    <h4>Needle Damage Classification:</h4>
+                    <ul>
+                        <li><strong>Class 0:</strong> No visible damage or de
