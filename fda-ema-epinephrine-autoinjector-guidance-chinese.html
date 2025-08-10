@@ -104,10 +104,11 @@
         <button class="tablinks" onclick="openTab(event, 'delivered-volume')">输送体积</button>
         <button class="tablinks" onclick="openTab(event, 'needle-length')">针头长度</button>
         <button class="tablinks" onclick="openTab(event, 'needle-integrity')">针头完整性</button>
-        <button class="tablinks" onclick="openTab(event, 'ejection-time')">喷射时间</button>
+        <button class="tablinks" onclick="openTab(event, 'ejection-time')">注射时间</button>
         <button class="tablinks" onclick="openTab(event, 'trigger-force')">触发力</button>
         <button class="tablinks" onclick="openTab(event, 'training-program')">培训计划</button>
         <button class="tablinks" onclick="openTab(event, 'ema-requirements')">EMA要求</button>
+        <button class="tablinks" onclick="openTab(event, 'fda-guidance-comparison')">FDA指南比较</button>
         <button class="tablinks" onclick="openTab(event, 'resources')">资源</button>
     </div>
 
@@ -727,6 +728,175 @@
         </table>
         
         <p>制造商在开发全球市场的肾上腺素自动注射器时，应同时满足EMA和FDA的要求，采用更严格的标准来确保全球合规性。</p>
+    </div>
+
+    <div id="fda-guidance-comparison" class="tab-content">
+        <div class="toc">
+            <h3>目录</h3>
+            <ul>
+                <li><a href="#gc-intro">简介</a></li>
+                <li><a href="#gc-2016">2016年草案指南</a></li>
+                <li><a href="#gc-2018">2018年草案指南</a></li>
+                <li><a href="#gc-2023">2023年草案指南</a></li>
+                <li><a href="#gc-2025">2025年草案指南</a></li>
+                <li><a href="#gc-comparison">比较分析</a></li>
+            </ul>
+        </div>
+
+        <h2 id="gc-intro">FDA指南演变简介</h2>
+        <p>FDA对肾上腺素自动注射器审批的方法在过去十年中发生了显著变化。本节提供了2016年至2025年间要求、测试方法和统计方法关键变化的全面概述。</p>
+        
+        <h2 id="gc-2016">2016年草案指南</h2>
+        <p>FDA最初的肾上腺素自动注射器指南文件主要关注以下方面：</p>
+        <ul>
+            <li>输送剂量准确性作为主要终点</li>
+            <li>对设备-用户界面特性的强调有限</li>
+            <li>传统的生物等效性统计方法</li>
+            <li>相对较小的样本量要求（通常n=60）</li>
+            <li>基本的人为因素考虑</li>
+            <li>对比较使用研究的要求有限</li>
+        </ul>
+        <p>2016年指南代表了FDA首次尝试标准化仿制肾上腺素自动注射器的审批流程，主要关注药理学方面而非设备性能特性。</p>
+
+        <h2 id="gc-2018">2018年草案指南</h2>
+        <p>2018年指南文件引入了几项重要变化：</p>
+        <ul>
+            <li>引入群体生物等效性（PBE）作为首选统计方法</li>
+            <li>扩大对关键设备性能属性的关注：
+                <ul>
+                    <li>输送体积</li>
+                    <li>伸展针头长度</li>
+                    <li>基本针头完整性测试</li>
+                    <li>注射时间</li>
+                </ul>
+            </li>
+            <li>增加样本量要求（通常n=100）</li>
+            <li>更加重视人为因素研究</li>
+            <li>引入比较使用研究</li>
+        </ul>
+        <p>这一指南标志着一个重要转变，开始认识到除药理学等效性外，设备性能特性的重要性。</p>
+
+        <h2 id="gc-2023">2023年草案指南</h2>
+        <p>2023年指南文件代表了对肾上腺素自动注射器等效性的全面方法：</p>
+        <ul>
+            <li>强制对所有关键性能参数使用群体生物等效性（PBE）</li>
+            <li>审批所需的五项关键性能测试：
+                <ol>
+                    <li>具有更严格验收标准的输送体积</li>
+                    <li>具有多个测量点的伸展针头长度</li>
+                    <li>跨多种材料和角度的全面针头完整性测试</li>
+                    <li>详细的注射/排出时间曲线分析</li>
+                    <li>各种条件下的激活力测试</li>
+                </ol>
+            </li>
+            <li>更大的样本量（通常n=180）</li>
+            <li>全面的人为因素验证研究</li>
+            <li>具有多个用户组的稳健比较使用研究</li>
+            <li>训练设备要求</li>
+        </ul>
+        <p>2023年指南反映了FDA对设备性能在确保紧急使用产品（如肾上腺素自动注射器）的治疗等效性方面所起关键作用的认识不断增强。</p>
+
+        <h2 id="gc-2025">2025年草案指南</h2>
+        <p>最新的2025年指南进一步完善了要求：</p>
+        <ul>
+            <li>增强PBE分析的统计方法，采用更复杂的建模</li>
+            <li>在审批过程中整合真实世界证据</li>
+            <li>扩展性能测试，包括：
+                <ul>
+                    <li>温度循环对性能的影响</li>
+                    <li>振动和跌落测试要求</li>
+                    <li>货架期末性能验证</li>
+                    <li>全面的用户界面测试</li>
+                </ul>
+            </li>
+            <li>更大的样本量（通常n=240）</li>
+            <li>数字培训工具和培训有效性验证</li>
+            <li>批准后监测要求</li>
+        </ul>
+        <p>2025年指南代表了迄今为止最全面的方法，反映了FDA致力于确保仿制肾上腺素自动注射器在所有关键性能参数和使用场景中提供与参考上市药物相同水平的安全性和有效性。</p>
+
+        <h2 id="gc-comparison">FDA指南文件比较分析</h2>
+        <table>
+            <tr>
+                <th>参数</th>
+                <th>2016年指南</th>
+                <th>2018年指南</th>
+                <th>2023年指南</th>
+                <th>2025年指南</th>
+            </tr>
+            <tr>
+                <td>统计方法</td>
+                <td>传统BE</td>
+                <td>引入PBE</td>
+                <td>强制PBE</td>
+                <td>增强PBE模型</td>
+            </tr>
+            <tr>
+                <td>样本量</td>
+                <td>n=60</td>
+                <td>n=100</td>
+                <td>n=180</td>
+                <td>n=240</td>
+            </tr>
+            <tr>
+                <td>输送体积</td>
+                <td>基本测试</td>
+                <td>PBE分析</td>
+                <td>全面测试</td>
+                <td>生命周期测试</td>
+            </tr>
+            <tr>
+                <td>针头长度</td>
+                <td>未指定</td>
+                <td>基本测量</td>
+                <td>多点测量</td>
+                <td>动态测量</td>
+            </tr>
+            <tr>
+                <td>针头完整性</td>
+                <td>不要求</td>
+                <td>基本测试</td>
+                <td>多种材料/角度</td>
+                <td>全面测试</td>
+            </tr>
+            <tr>
+                <td>排出时间</td>
+                <td>未指定</td>
+                <td>仅总时间</td>
+                <td>时间曲线</td>
+                <td>动态曲线</td>
+            </tr>
+            <tr>
+                <td>激活力</td>
+                <td>未指定</td>
+                <td>基本测量</td>
+                <td>多种条件</td>
+                <td>用户特定测试</td>
+            </tr>
+            <tr>
+                <td>人为因素</td>
+                <td>基本考虑</td>
+                <td>形成性研究</td>
+                <td>验证研究</td>
+                <td>全面研究</td>
+            </tr>
+            <tr>
+                <td>培训要求</td>
+                <td>基本说明</td>
+                <td>培训设备</td>
+                <td>全面计划</td>
+                <td>数字工具和验证</td>
+            </tr>
+            <tr>
+                <td>批准后</td>
+                <td>未指定</td>
+                <td>基本报告</td>
+                <td>增强监测</td>
+                <td>全面监测</td>
+            </tr>
+        </table>
+        
+        <p>FDA指南的这种演变反映了该机构对影响肾上腺素自动注射器安全性和有效性的关键因素的认识不断提高。寻求仿制产品批准的制造商现在必须在更广泛的性能特性范围内证明等效性，并进行更严格的统计分析和更大的样本量。</p>
     </div>
 
     <div id="resources" class="tab-content">
